@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container {
+    width: 100%;
+    background-color: azure;
+}
+
+header {
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+nav > ul{
+    height: 50px;
+    margin: 0;
+    list-style: none;
+    color: white;
+}
+
+nav > ul > li {
+    float: left;
+    padding: 10px;
+    margin: 5px 5px 5px 0px;
+    font-size: 14px;
+}
+
+/* width가
+구형폰 - 320px
+현재폰 - 360 ~ 375px */
+
+@media screen and (min-width: 320px) {
+    nav, #contents {
+        width: 310px;
+        margin: 0 auto;
+    }
+
+    #intro > img {
+        width: 100%;
+        padding: 10px;
+    }
+
+    #desc {
+        width: 100%;
+        height: 200px;
+        padding: 20px;
+        background-color: thistle;
+        line-height: 1.5;
+        font-size: 15px;
+    }
+
+    footer {
+        width: 100%;
+        height: 75px;
+        /* border-box 형식이기 때문에 padding 20px을 제외하면 55px이 남음, 이 때 line-height를 이 남은 크기만큼으로 주면 글자가 중앙에 위치 */
+        line-height: 55px;
+        padding: 10px;
+        background-color: rgba(0,0,0,0.5);
+        color: white;
+    }
+}
+
+/* width가
+테블릿 - 768px ~ */
+@media screen and (min-width: 768px) {
+    nav, #contents {
+        width: 750px;
+        margin: 0 auto;
+    }
+
+    #intro {
+        width: 100%;
+    }
+    #intro > img {
+        width: 20%;
+        padding: 10px;
+    }
+
+    #desc {
+        width: 100%;
+        padding: 10px;
+        margin: 10px auto;
+    }
+
+    footer {
+        height: 70px;
+        padding: 20px;
+        line-height: 30px;
+        background-color: royalblue;
+        text-align: center;
+    }
+
+    /* width가
+    데스크탑 - 1024px ~ 1280px */
+    @media screen and (min-width: 1024px) {
+        nav, #contents {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        #intro > img {
+            width: 15%;
+            padding: 10px;
+            float: left;
+        }
+
+        #desc {
+            display: inline-block;
+            width: 200px;
+            height: auto;
+            padding: 10px;
+            border: 3px dashed black;
+            margin-left: 100px;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            clear: both;
+            height: 100px;
+            padding: 40px;
+            background-color: slateblue;
+            line-height: 20px;
+        }
+    }
+}
+
+/* 기본적인 것 하나, 테블릿 하나, 핸드폰 하나 이렇게 3개를 써야 함
+테블릿은 기본과 거의 비슷해서 크기 조절, 위치 조절 정도만 해주면 됨
+핸드폰은 광고 같은 것들의 위치가 확실히 바뀜 - 그렇다 보니 배치 바꿔주는 코드부터 칠 것이 많음 */

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>둥근 테두리</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            display: inline-block;
+        }
+
+        .radius1 {
+            border: 3px solid red;
+            border-radius: 100px 100px 50px 50px / 30px 30px 100px 100px;
+            /* / 전까지는 가로, 그 뒤는 세로라고 보면 됨 */
+        }
+
+        .radius2 {
+            border: 3px solid blue;
+            border-radius: 100px / 50px;
+            
+        }
+
+        .radius3 {
+            border: 3px solid green;
+            border-radius: 50%;
+            /* 100px(50%)로 하면 완벽한 원이 됨(크기가 200px이므로) */
+        }
+    </style>
+</head>
+<body>
+    <h2>둥근 테두리</h2>
+    <div class = "radius1"></div>
+    <div class = "radius2"></div>
+    <div class = "radius3"></div>
+</body>
+</html>

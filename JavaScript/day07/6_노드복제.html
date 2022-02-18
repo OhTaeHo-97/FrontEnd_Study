@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드복제</title>
+</head>
+<body>
+    <h2>노드복제</h2>
+    <h3 id="item">복제된 아이템</h3>
+    <div id="list">
+        <p>HTML</p>
+        <p>CSS</p>
+        <p>JavaScript</p>
+        <p>TypeScript</p>
+    </div>
+    <button onclick = "cloneElement()">노드복제</button>
+</body>
+<script>
+    const cloneElement = function() {
+        const parent = document.getElementById("list");
+        const originItem = document.getElementById("item");
+        // originItem.cloneNode(false); // 통째로가 originNode를 복사한 node
+        //parent.appendChild(originItem.cloneNode(false)); // 하나를 그대로 복제해서 그것을 parent 마지막에 추가해주는 것
+        // div#list 안에 마지막 자식으로 h3#item 추가
+        // 자식으로 갖고 있던 text 노드는 복제를 하지 않아 <h3 id = "item"></h3> 이렇게만 만들어진 것
+        parent.appendChild(originItem.cloneNode(true)); // id 속성은 유일한 것이기 때문에 복제를 안 하는 것이 좋음
+    }
+</script>
+</html>

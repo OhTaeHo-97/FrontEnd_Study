@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자동 형변환</title>
+</head>
+<body>
+    <h2>자동 형변환</h2>
+    <script>
+        const a = 10 + "문자열";
+        console.log(a);
+
+        const b = 20;
+        console.log(b); // 숫자 20
+        console.log(b + ""); // 문자열 "20"
+
+        const c = "3" * "5"; // 숫자로 이루어진 문자열들끼리 *, -, / 연산을 하면 알아서 숫자로 바꿔서 연산해줌
+        console.log(c); // 15
+
+        const d = 100 - "★";
+        console.log(d); // NaN
+        console.log(typeof(d)); // number (?)
+    </script>
+</body>
+</html>

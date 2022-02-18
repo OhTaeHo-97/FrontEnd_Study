@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rem 크기</title>
+    <style>
+        html { font-size: 32px; }
+        body { font-size: 1.5em; }
+        /* rem은 최상위 요소를 기준으로 변하므로 부모 요소인 body가 1.5em으로 24px로 변했다고 하더라도 rem 부분은 변하지 않음 */
+        /* html의 font 크기를 변경하면 rem도 역시 따라서 바뀜 */
+        /* 반응형에서는 크기가 줄어들었을 때 그대로 크기를 주면 깨질 수도 있으므로 %, rem, em으로 하는 경우가 많음 */
+        .rem { font-size: 1rem; }
+    </style>
+</head>
+<body>
+    <h2>rem 크기</h2>
+    <p class = "rem">
+        내가 원하는 나의 모습과 네가<br>
+        필요로 하는 나의 모습이 같지가 않다는 것<br>
+        잘못된 건 아니지 않나요<br>
+        미안할 일 아니지 않나요<br>
+        그런데 왜 또 그렇게 자꾸 날 몰아세우는 건데<br>
+        도대체 뭐를 더 어떻게 해<br>
+        난 몇 마디의 말과 몇 번의 손짓에<br>
+        또 몇 개의 표정과 흐르는 마음에<br>
+        울고 웃는 그런 나약한 인간일 뿐인데<br>
+        대체 내게서 뭐를 더 바라나요<br>
+        내가 줄 수 있는 것 그 이상을<br>
+        줄 수 없음에 미안해해야 하는 건 이제 그만둘래요<br>
+        달라졌구나 참 많이도 변했구나<br>
+        난 여전히 그대론데 넌 달라져 버렸어<br>
+        근데 혹시 한 번쯤 반대로 생각해 본 적은 없었나요<br>
+        난 몇 마디의 말과 몇 번의 손짓에<br>
+        또 몇 개의 표정과 흐르는 마음에<br>
+        울고 웃는 그런 나약한 인간일 뿐인데<br>
+        대체 내게서 뭐를 더 바라나요<br>
+        내가 줄 수 있는 것 그 이상을<br>
+        줄 수 없음에 미안해해야 하는 건 이제 그만둘래요
+    </p>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미디어 쿼리 - 2</title>
+    <link rel = "stylesheet" href = "css/media.css">
+</head>
+<body>
+    <div id = "container">
+        <!-- 의미를 가지는 태그(semantic tag) -->
+        <!-- header: 사이트 상단에 위치하는 부분 -->
+        <!-- 검색창, 로고, 네비게이션바(메뉴들) -->
+        <header>
+            <!-- 별 다른 기능은 없음 -->
+            <!-- nav는 block 태그 -->
+            <nav>
+                <!-- nav 안에는 보통 메뉴들의 리스트들을 넣어줌 -->
+                <ul>
+                    <li>인스타그램</li>
+                    <li>유튜브</li>
+                    <li>페이스북</li>
+                    <li>트위터</li>
+                </ul>
+            </nav>
+        </header>
+        <!-- contents: 본문내용, 광고 -->
+        <div id = "contents">
+            <!-- 본문을 적어 넣을 때 단을 나눠줄 때 사용하는 semantic 태그 -->
+            <!-- 주제 별로 나눌 때 내용들을 나눌 때 사용 -->
+            <!-- section 태그 안에는 보통 h 태그를 이용한 제목이 하나 있음 -->
+            <!-- <section>
+                <h4>인스타그램</h4>
+                <article></article>
+            </section> -->
+            <section id = "intro">
+                <img src = "images/instagram.png" alt = "인스타그램">
+                <img src = "images/youtube.png" alt = "유튜브">
+                <img src = "images/facebook.png" alt = "페이스북">
+                <img src = "images/twitter.png" alt = "트위터">
+            </section>
+            <!-- 양 옆에 존재하는 광고 같은 것이 존재하는 부분 -->
+            <aside id = "desc" class = "text">
+                <p>
+                    내가 원하는 나의 모습과 네가<br>
+                    필요로 하는 나의 모습이 같지가 않다는 것<br>
+                    잘못된 건 아니지 않나요<br>
+                    미안할 일 아니지 않나요<br>
+                    그런데 왜 또 그렇게 자꾸 날 몰아세우는 건데<br>
+                    도대체 뭐를 더 어떻게 해
+                </p>
+            </aside>
+        </div>
+        <!-- footer: 사이트 하단에 위치하는 부분 -->
+        <!-- 저작권, 연락처, 사이트 소개 -->
+        <footer>
+            <p>Copyrightⓒ 211106 ㈜PYR</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다단 레이아웃</title>
+    <style>
+        div, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 10px;
+        }
+
+        h2 {
+            padding: 0 0 20px;
+            text-align: center;
+        }
+
+        .col {
+            text-align: justify;
+            padding: 20px;
+            background-color: gold;
+
+            column-count: 3;
+            /* .col의 div에게 3개의 column을 줌(그러니까 3개의 layout으로 나뉘게 됨) */
+            
+            column-gap: 30px;
+            /* 각 column 사이의 여백 */
+
+            column-rule: 3px solid red;
+            /* column들 사이의 구분선 */
+        }
+
+        .col > h2 {
+            column-span: all;
+            /* col 안에 있는 h2 태그는 전체의 중간에 있어야 하므로 column-span을 통해 전체 column을 합침 */
+        }
+    </style>
+</head>
+<body>
+    <h2>다단 레이아웃</h2>
+    <div class = "col">
+        <h2>다단 레아아웃</h2>
+        <p>
+            한적한 밤 산책하다 보면 어김없이 생각나는 얼굴 반짝이는 별을 모아 그리는 그런 사람 좁다란 길 향기를 채우는 가로등 빛 물든 진달래꽃 이 향기를 그와 함께 맡으면 참 좋겠네 보고 싶어라 그리운 그 얼굴 물로 그린 그림처럼 사라지네 보고 싶어라 오늘도 그 사람을 떠올리려 산책을 하네 대기는 차갑게 감싸고 생생하게 생각나는 그때 안타까운 빛나던 시절 뒤로하고 가던 보고 싶어라 그리운 그 얼굴 물로 그린 그림처럼 사라지네 보고 싶어라 오늘도 그 사람을 떠올리려 산책을 하네
+            한적한 밤 산책하다 보면 어김없이 생각나는 얼굴 반짝이는 별을 모아 그리는 그런 사람 좁다란 길 향기를 채우는 가로등 빛 물든 진달래꽃 이 향기를 그와 함께 맡으면 참 좋겠네 보고 싶어라 그리운 그 얼굴 물로 그린 그림처럼 사라지네 보고 싶어라 오늘도 그 사람을 떠올리려 산책을 하네 대기는 차갑게 감싸고 생생하게 생각나는 그때 안타까운 빛나던 시절 뒤로하고 가던 보고 싶어라 그리운 그 얼굴 물로 그린 그림처럼 사라지네 보고 싶어라 오늘도 그 사람을 떠올리려 산책을 하네
+            한적한 밤 산책하다 보면 어김없이 생각나는 얼굴 반짝이는 별을 모아 그리는 그런 사람 좁다란 길 향기를 채우는 가로등 빛 물든 진달래꽃 이 향기를 그와 함께 맡으면 참 좋겠네 보고 싶어라 그리운 그 얼굴 물로 그린 그림처럼 사라지네 보고 싶어라 오늘도 그 사람을 떠올리려 산책을 하네 대기는 차갑게 감싸고 생생하게 생각나는 그때 안타까운 빛나던 시절 뒤로하고 가던 보고 싶어라 그리운 그 얼굴 물로 그린 그림처럼 사라지네 보고 싶어라 오늘도 그 사람을 떠올리려 산책을 하네
+        </p>
+    </div>
+</body>
+</html>

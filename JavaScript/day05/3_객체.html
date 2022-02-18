@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체</title>
+</head>
+<body>
+    <h2>객체</h2>
+    <script>
+        const car = {
+            brand:'Ferrari',
+            color:'Red',
+            price:65000,
+            hp:1000,
+            zeroback:2.5
+        };
+
+        // .(하위 연산자)
+        // A.b -> A 안의 b / A의 b
+        car.price -= 10000;
+
+        console.log(car.brand);
+        console.log(car.color);
+        console.log(car.price);
+        console.log(car.hp);
+        console.log(car.zeroback);
+
+        console.log(car['brand']);
+        console.log(car['color']);
+        console.log(car['price']);
+        console.log(car['hp']);
+        console.log(car['zeroback']);
+        // 자바스크립트 배열 -> 배열이 아닌 객체다!(key값(arr = [10,20,30,40,50] -> arr 객체에 0이라는 key값에 10 담겨있는 것과 마찬가지))
+        // 배열도 array의 0번방 접근하듯이 car의 color 이렇게 접근이 가능한 것
+
+        for(let key in car) {
+            // console.log(key);
+            console.log(`이 차의 ${key}는 ${car[key]}입니다.`);
+        }
+    </script>
+</body>
+</html>

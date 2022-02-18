@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "icon" href = "logo/muse.ico">
+    <title>회원가입</title>
+</head>
+<body>
+    <h2>회원가입</h2>
+    <fieldset>
+        <form action = "registration.jsp" method = post>
+            <p>
+                <label for = "ID">아이디</label><br>
+                <input type = "text" id = "ID" name = "ID" placeholder = "아이디를 입력하세요" style = "width:200px; height:25px; margin-top:10px;" required>
+            </p>
+            <p>
+                <label for = "password" style = "margin-top:10px;">비밀번호</label><br>
+                <input type = "password" id = "text" name = "password" placeholder = "비밀번호를 입력하세요" style = "width:200px; height:25px; margin-top:10px;" required>
+            </p>
+            <p>
+                <label for = "password_confirm">비밀번호 확인</label><br>
+                <input type = "password" id = "password_confirm" name = "password_confirm" placeholder = "비밀번호를 입력하세요" style = "width:200px; height:25px; margin-top:10px;" required>
+            </p>
+            <p>
+                <label for = "name">이름</label><br>
+                <input type = "text" id = "name" name = "name" placeholder = "이름" style = "width:100px; height:25px; margin-top:10px;" required>
+            </p>
+            <p>
+                <label for = "birth">생년월일</label><br>
+                <input type = "date" id = "birth" name = "birth" min = "1900-01-01" max = "9999-12-31" style = "width:200px; height:25px; margin-top:10px;" required>
+            </p>
+            <p>
+                <label for = "telephone">전화번호</label><br>
+                <input type = "tel" id = "telephone" name = "telephone" placeholder = "전화번호" style = "width:150px; height:25px; margin-top:10px;" required>
+            </p>
+            <p>
+                <label for = "email">이메일</label><br>
+                <input type = "text" id = "email" name = "email" placeholder = "이메일" style = "width:200px; height:25px; margin-top:10px;" required> @ 
+                <select name = "email_domain" style = "width:200px; height:32px; margin-top:10px;">
+                    <option value = "naver.com">naver.com</option>
+                    <option value = "daum.net">daum.net</option>
+                    <option value = "gmail.com">gmail.com</option>
+                    <option value = "kakao.com">kakao.com</option>
+                    <option value = "nate.com">nate.com</option>
+                    <option value = "yahoo.com">yahoo.com</option>
+                    <option>직접입력</option>
+                </select>
+                <input type = "text" name = "email_domain" style = "width:200px; height:25px; margin-top:10px;" disabled>
+                </p>
+            <p>
+                <fieldset>
+                    <legend>성별</legend>
+                    <input type = "radio" name = "gender" id = "male" value = "male" required><label for = "male">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;남성</label><br>
+                    <input type = "radio" name = "gender" id = "female" value = "female"><label for = "female">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;여성</label>
+                </fieldset>
+            </p>
+            <p>
+                <fieldset>
+                    <legend>취미</legend>
+                    <table width = "500" height = "100">
+                        <tr>
+                            <td>
+                                <input type = "checkbox" name = "hobby" id = "reading" value = "reading"><label for = "reading">&nbsp;독서</label>
+                            </td>
+                            <td>
+                                <input type = "checkbox" name = "hobby" id = "music" value = "music"><label for = "music">&nbsp;음악 감상</label>
+                            </td>
+                            <td>
+                                <input type = "checkbox" name = "hobby" id = "exercise" value = "exercise"><label for = "exercise">&nbsp;운동</label><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type = "checkbox" name = "hobby" id = "movie" value = "movie"><label for = "reading">&nbsp;영화 감상</label>
+                            </td>
+                            <td>
+                                <input type = "checkbox" name = "hobby" id = "travel" value = "travel"><label for = "travel">&nbsp;여행</label>
+                            </td>
+                            <td>
+                                <input type = "checkbox" name = "hobby" id = "drawing" value = "drawing"><label for = "drawing">&nbsp;그림 그리기</label>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </p>
+            <p>
+                주민등록번호<br>
+                <input type = "text" name = "ID_num_first" minlength = "6" maxlength = "6" style = "width:100px; height:25px; margin-top:10px;" required> - 
+                <input type = "password" name = "ID_num_last" minlength = "7" maxlength = "7" style = "width:100px; height:25px; margin-top:10px;" required>
+                &nbsp;<input type = "submit">
+            </p>
+            <p>
+                <label for = "postal">우편번호</label><br>
+                <input type = "text" name = "postal" id = "postal" style = "width:100px; height:25px; margin-top:10px;" required>
+            </p>
+            <p>
+                주소<br>
+                <input type = "text" name = "address" placeholder = "도로명/지번주소" style = "width:600px; height:25px; margin-top:10px;" required><br>
+                <input type = "text" name = "address_detail" placeholder = "상세주소" style = "width:350px; height:25px; margin-top:10px;" required>
+                <input type = "text" name = "reference" placeholder = "참고항목" style = "width:200px; height:25px; margin-top:10px;">
+            </p>
+            <br>
+            <input type = "submit" value = "가입하기">
+            <input type = "reset" value = "다시 작성">
+        </form>
+    </fieldset>
+    <!-- 회원가입 폼 만들기 -->
+    <!-- 아이디, 비밀번호, 비밀번호 확인, 이름, 핸드폰, 이메일, 성별, 취미(5가지 정도 -> 중복 가능(checkbox)), 주민등록번호, 검증버튼, 우편번호, 주소, 상세주소, 참고항목 -->
+    <!-- 가입완료, 다시 작성 -->
+    <!-- 형식만 만들면 됨 -->
+</body>
+</html>

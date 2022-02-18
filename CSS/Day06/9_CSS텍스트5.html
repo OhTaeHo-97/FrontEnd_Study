@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 텍스트 - 5</title>
+
+    <style>
+        h1 {
+            font-size: 100px;
+        }
+
+        .shadow1 {
+            text-shadow: 10px 10px;
+            /* 가로 거리, 세로 거리만 10px씩 나오게 됨
+            기본 색은 원래 글자 색임 */
+            color:hotpink;
+        }
+
+        .shadow2 {
+            color:deeppink;
+            text-shadow: 10px 10px 5px;
+            /* 번짐정도를 5px로 줌으로써 그림자를 좀 흐릿하게 보이게 만들 수 있음 */
+        }
+
+        .shadow3 {
+            text-shadow: 10px 10px 5px #f00;
+        }
+
+        .shadow4 {
+            color:#fff;
+            text-shadow: 10px -10px 5px #000;
+        }
+    </style>
+</head>
+<body>
+    <h2>CSS 텍스트 - 5</h2>
+    <h1 class = "shadow1">CSS text-shadow 속성</h1>
+    <h1 class = "shadow2">CSS text-shadow 속성</h1>
+    <h1 class = "shadow3">CSS text-shadow 속성</h1>
+    <h1 class = "shadow4">CSS text-shadow 속성</h1>
+</body>
+</html>

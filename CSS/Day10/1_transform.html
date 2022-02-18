@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform</title>
+    <style>
+        body { margin-left: 100px; }
+
+        p {
+            width: 400px;
+            padding: 15px;
+            border: 3px solid darkblue;
+        }
+
+        /* translate - 위치를 이동시킴 */
+        #trans1 {
+            -ms-transform: translate(30px, 30px);
+            /* 인터넷 익스플로러 용 */
+            -moz-transform: translate(30px, 30px);
+            /* 모질라 용(파이어폭스) */
+            -o-transform: translate(30px, 30px);
+            /* 오페라 용 */
+            -webkit-transform: translate(30px, 30px);
+            /* 크롬 혹은 엣지 용 */
+            /* 엣지 - 크롬 베이스(그래서 같이 사용) */
+            transform: translate(30px, 30px);
+            /* 표준으로 제정해놓은 코드임(표준 문법 코드) */
+            /* 위에 것들이 적용이 안된다 싶으면 표준으로 제정해놓은 코드를 사용(그렇기 때문에 표준 문법 코드는 제일 마지막에 와야 함!) */
+            background-color: deeppink;
+        }
+
+        #trans2 {
+            transform: rotate(60deg);
+            /* 60도만큼 시계방향으로 회전시킴 */
+            background-color: gold;
+        }
+
+        #trans3 {
+            transform: scale(1.5, 1.2);
+            /* 가로는 1.5배, 세로 1.2배씩 늘어남 */
+            /* width와 height로 크기를 조정할 수 있지만 scale은 요소가 만들어지고 늘린다고 보면 됨(border 두께라던지 내부 내용 크기라던지 이런 것도 그 비율대로 같이 늘어나게 됨) */
+            background-color: orange;
+        }
+
+        #trans4 {
+            transform: skew(30deg, 15deg);
+            /* 경사면을 만드는 속성 */
+            background-color: yellowgreen;
+        }
+
+        #gradient {
+            background: yellow;
+            /* 아래 graident와 같은 속성을 지원하지 않는 것이 있다면(이 속성 자체가 표현되지 않는다하면 표현할 것이 있어야 함 - 그것을 가장 먼저 씀) */
+            background: -webkit-linear-gradient(left, red, skyblue);
+            background: -moz-linear-gradient(left, red, darkblue);
+            background: -o-linear-gradient(left, red, darkblue);
+            background: linear-gradient(left, red, darkblue);
+            /* 왼쪽에서 오른쪽으로 그라데이션 효과 */
+            /* background: linear-gradient(red, skyblue); */
+            /* 위에서 아래로 그라데이션 효과 */
+        }
+        /* vender prefix를 이용할 때에는 속성이 적용되지 않을 때 적용할 것들을 먼저 작성하고 이후에 vender prefix에 해당하는 코드를 작성하고 마지막으로 표준 문법 코드를 작성! */
+    </style>
+</head>
+<body>
+    <h2>tranform</h2>
+    <!-- visual studio code emmet -->
+    <p>original</p>
+    <p id="trans1">translate</p>
+    <p id="trans2">rotate</p>
+    <p id="trans3">scale</p>
+    <p id="trans4">skew</p>
+    <p id="gradient">gradient</p>
+</body>
+</html>

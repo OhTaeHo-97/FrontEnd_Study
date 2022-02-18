@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 - 2(선택자)</title>
+</head>
+<body>
+    <h2>제이쿼리 - 2(선택자)</h2>
+    <p id = "txt">변경될 문자열입니다!</p>
+    <button>글자 크기 변경!</button>
+</body>
+<script src = "./jquery-3.6.0.min.js"></script>
+<script>
+    // $("button") // 문자열을 넘기면 그 문자열에 해당하는 CSS 선택자를 찾아옴(button 태그들로 이루어진 것을 다 가져옴)
+    // $("button").on(); // 앞에는 이벤트명, 뒤에는 그것을 수행했을 때 할 handler(?)
+    // $(선택자).on('이벤트명',함수) -> 이벤트 다는 법
+    $("button").on("click", function() {
+        $("#txt").css("font-size", "25px"); // txt id에 해당하는 것의 css를 변경(font-size를 25px로)
+        // $(선택자).css(속성명, 속성값) : css 변경
+        $("#txt").attr("class", "change"); // 속성 변경(클래스라는 속성을 change로 바꿔준다는 뜻)
+    });
+    // DOM이나 이벤트를 쉽게 달 수 있다! -> jquery의 장점!
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학생 성적 관리 프로그램</title>
+</head>
+<body>
+    <script>
+        const name = prompt('이름을 입력하세요!');
+        let korean = prompt('국어 점수를 입력하세요!');
+        while(isNaN(korean)) {
+            korean = prompt('국어 점수를 입력하세요!');
+        }
+        korean = Number(korean);
+        let english = Number(prompt('영어 점수를 입력하세요!'));
+        while(isNaN(english)) {
+            english = prompt('영어 점수를 입력하세요!');
+        }
+        english = Number(english);
+        let math = Number(prompt('수학 점수를 입력하세요!'));
+        while(isNaN(math)) {
+            math = prompt('수학 점수를 입력하세요!');
+        }
+        math = Number(math);
+        let total = korean + english + math;
+        document.write("-------------" + name + "-------------<br>");
+        document.write("국어점수 : " + korean + "점<br>");
+        document.write("영어점수 : " + english + "점<br>");
+        document.write("수학점수 : " + math + "점<br><br>");
+        document.write("총점 : " + total + "점<br>");
+        document.write("총점 : " + (total / 3).toFixed(3) + "점<br>");
+    </script>
+</body>
+</html>

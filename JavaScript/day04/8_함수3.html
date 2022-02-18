@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 - 3</title>
+</head>
+<body>
+    <h2>함수 - 3</h2>
+    <script>
+        // 함수명에 get~~ : ~~를 받아오는 함수
+        function getGift(act) {
+            if(act == '착한일') { // 문자열은 type이 다를 수 없으니 ==도 가능
+                return '선물';
+            } else {
+                return "없음";
+            }
+        }
+        // 내 이름을 10번 출력하는 함수
+        function printName() {
+            for(let i = 0; i < 10; i++) {
+                console.log("이름");
+            }
+        }
+        // 구구단의 한 단을 출력하는 함수
+        function printDan(dan) {
+            for(let i = 1; i < 9; i++) {
+                console.log(`${dan} X ${i} = ${dan * i}`);
+            }
+        }
+        // 현재 시간정보를 돌려주는 함수
+        function getDate() {
+            let date = new Date();
+            return date;
+        }
+        
+        console.log(getGift('착한일'));
+        printName();
+        printDan(7);
+        console.log(getDate());
+    </script>
+</body>
+</html>

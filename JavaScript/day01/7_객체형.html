@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체형</title>
+</head>
+<body>
+    <h2>객체형</h2>
+    <script>
+        // const를 객체 이름에 자주 사용
+        const apple = {id:"apple", pw:"abcd1234", age:10};
+        console.log(apple);
+        // .(하위 연산자) - 만약 A.b --> A 안의 b / A의 b라는 뜻
+
+        console.log(`아이디 : ${apple.id}`);
+        console.log(`비밀번호 : ${apple.pw}`);
+        console.log(`나이 : ${apple.age}`);
+
+        // apple = {}; // 오류 발생 - apple 변수에 있는걸 새롭게 바꾸려 했기 때문에)
+        // 객체 내부에 정해놓은 속성을 바꾸는 것은 오류가 없다!
+        // 객체 내부의 속성값을 바꾸는 것은 오류가 나지 않는다!
+        apple.age = 15; // 가능
+
+        console.log(`아이디 : ${apple.id}`);
+        console.log(`비밀번호 : ${apple.pw}`);
+        console.log(`나이 : ${apple.age}`);
+    </script>
+</body>
+</html>

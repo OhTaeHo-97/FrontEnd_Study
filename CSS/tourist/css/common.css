@@ -1,0 +1,1438 @@
+@import url('layout_base.css');
+
+@font-face {
+    font-family: 'CookieRun-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 공통 부분 */
+body {
+    font-family: 'CookieRun-Regular';
+    font-size: 16px;
+    height: 100%;
+    color: #444;
+    white-space: normal;
+    /* 줄 띄우기 어떻게 할 것인지 설정하는 것 */
+    word-wrap: break-word;
+    line-height: 1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: normal;
+    font-size: inherit;
+    /* 부모 요소의 크기대로 하겠다(부모 요소가 아닐 수도 있고 상속받고 있는 스타일대로 하겠다는 것) */
+}
+
+ul, ol, li {
+    list-style: none;
+}
+
+a{ text-decoration: none; }
+a:link, a:visited, a:hover, a:focus {
+    color: #444;
+}
+
+/* float 없애는 것이 목표 */
+/* clear 클래스는 float 없애는 용도라 after에 clear:both 이용해서 없애주기 */
+/* after -> 자신 다음 것에 clear: both를 주면 바로 옆에 가상 요소에 즉, 아무것도 없는 것에 clear:both를 주면 다음 사항들은 clear:both가 먹여짐 */
+.clear::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+img {
+    border:none;
+    vertical-align: middle;
+}
+
+/* hidden의 줄임말
+hdd 클래스가 있으면 그 것을 숨김 */
+/* legend와 같은 것도 접근성을 위해 필요하지만 우리가 디자인할 것이기 때문에 보일 필요 없음 */
+.hdd, legend {
+    font-size: 0;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    text-indent: -9999px;
+    overflow: hidden;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.box_inner {
+    width: 1050px;
+    margin: 0 auto;
+}
+input, select, textarea, button, form, label {
+    vertical-align: middle;
+}
+fieldset {
+    border: none;
+}
+input[type = "text"], input[type = "number"], input[type = "password"], input[type = "tel"], input[type = "email"] {
+    /* 입력하는 박스 나오는 것들 */
+    box-sizing: border-box;
+    display: inline-block;
+    height: 45px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    line-height: normal;
+    font-size: 15px;
+}
+textarea {
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+/* background-position 이용해서 체크 안되어 있을 때와 체크되어 있을 때의 이미지를 갖고 있는 이미지 파일을 이동시키면서 체크됐는지 안됐는지 확인하게 할 것임 */
+/* 그래서 원래 있던 라디오 버튼을 숨김 */
+input[type = "radio"].css-radio {
+    overflow: hidden;
+    position: absolute;
+    left: -1000px;
+    width: 1px;
+    height: 1px;
+}
+input[type = "radio"].css-radio + label {
+    display: inline-block;
+    padding-left: 20px !important;
+    margin-right: 20px;
+    background: url("../images/bg_radio.png") no-repeat 0 0;
+    cursor: pointer;
+    vertical-align: middle;
+    font-size: 15px;
+    line-height: 16px;
+}
+input[type = "radio"].css-radio:checked + label {
+    background-position: 0 -50px;
+}
+input[type = "checkbox"].css-checkbox {
+    overflow: hidden;
+    position: absolute;
+    left: -1000px;
+    width: 1px;
+    height: 1px;
+}
+input[type = "checkbox"].css-checkbox + label {
+    display: inline-block;
+    padding-left: 30px !important;
+    height: 20px;
+    line-height: 20px;
+    background: url("../images/bg_checkbox.png") no-repeat 0 0;
+    background-size: 20px;
+    cursor: pointer;
+    vertical-align: middle;
+    font-size: 15px;
+}
+input[type = "checkbox"].css-checkbox:checked + label {
+    background-position: 0 -20px;
+}
+select {
+    /* 입력한 글 옆에 아래 방향 화살표 사라짐 */
+    /* 이미지 파일로 아래 방향 화살표를 넣을 것임(디자인을 위해) */
+    -webkit-appearance: none;
+    height: 30px;
+    padding: 0 5px;
+    border: 1px solid #ccc;
+}
+.select_common {
+    display: inline-block;
+    box-sizing: border-box;
+    position: relative;
+    width: 158px;
+    height: 35px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    background: url("../images/ico_selectArr.png") no-repeat 100% 50%;
+}
+.select_common select {
+    display: inline-block;
+    background: none;
+    width: 185px;
+    height: 29px;
+    padding: 0 10px;
+    border: none;
+    font-size: 15px;
+}
+.btn_line {
+    text-align: center;
+    font-size: 0;
+}
+/* 버튼 여러 개 둘 때에 서로서로 띄워주려고 주는 것 */
+.btn_line a {
+    margin-left: 10px;
+}
+/* 첫 번째 것은 왼쪽에 아무것도 없으니 0으로 함 */
+.btn_line a:first-child {
+    margin-left: 0;
+}
+.btn_basecolor {
+    display: inline-block;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size: 20px;
+    width: 125px;
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+    background: #384d75;
+    color: #fff !important;
+}
+.btn_srch {
+    display: inline-block;
+    background: #384d75;
+    color: #fff !important;
+    text-align: center;
+    width: 70px;
+    height: 35px;
+    font-size: 14px;
+    vertical-align: middle;
+    line-height: 35px;
+}
+.btn_bbs {
+    font-size: 14px;
+    display: inline-block;
+    background-color: #384d75;
+    color: #fff !important;
+    width: 70px;
+    text-align: center;
+    height: 35px;
+    line-height: 35px;
+    vertical-align: middle;
+}
+/* placeholder 색 바꿀 때 사용 */
+input::-webkit-input-placeholder { color: #999; }
+textarea::-webkit-input-placeholder { color: #999; }
+table, thead, tbody, tfoot {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: none;
+}
+
+/* --------------------------- 서브페이지 공통 시작 */
+/* 게시판, 게시판 리스트, 로그인/회원가입(?) 게시판에 관련된 서브페이지들이 똑같은 것이 있으면 설정, (?) 묶어서 설정해주는 곳 */
+.bodytext_area {
+    box-sizing: border-box;
+    padding: 55px 50px 0;
+}
+.location_area {
+    height: 445px;
+    background: url("../images/img_top2.jpg") no-repeat center bottom;
+}
+/* location_area라는 클래스를 가진 태그 중에 member 클래스를 가진 태그 */
+/* 즉, 2개의 클래스를 같이 갖고 있는 것을 뜻함 */
+.location_area.member {
+    background: url("../images/img_top5.jpg") no-repeat center bottom;
+}
+.location_area.customer {
+    background: url("../images/img_top2.jpg") no-repeat center bottom;
+}
+/* h2이고 tit_page라는 클래스를 갖고 있다면 */
+.location_area h2.tit_page {
+    padding: 250px 0 0 0;
+    margin: 0 50px;
+    border-bottom: 1px solid #ccc;
+    font-size: 30px;
+    letter-spacing: 3px;
+    color: #fff;
+}
+.location_area h2.tit_page .in {
+    font-variant: small-caps;
+    /* 작은 크기의 대문자를 말함 */
+}
+.location_area p.location {
+    padding: 20px 0 0 50px;
+    color: #fff;
+}
+.location_area p.location .path {
+    display: inline-block;
+    padding: 0 10px;
+}
+/* 회원가입은 보여주지 않음 */
+.location_area ul.page_menu {
+    display: none;
+}
+/* --------------------------- 서브페이지 공통 끝 */
+
+/* 그냥 두면 맨 위에서부터 쭉 읽음
+본문부터 보고 싶을 수 있음
+그렇기 때문에 tab 누르면 본문내용이 나오게 해서 이를 누르면 바로 본문으로 내려가도록 함 */
+/* 웹 접근성을 위한 skipnavi
+    https://nuli.navercorp.com/community/article/1132804 - skipnavi를 달아야 하는 이유가 나와 있음
+*/
+/* skipnavi */
+.skipnavi {
+    position: absolute;
+    left: 0;
+    top: -50px;
+    width: 100%;
+    text-indent: -9999px;
+    /* 평상시에는 글자가 안 보이게 둠 */
+    font-size: 0;
+    z-index: 999;
+}
+/* 처음 눌렀을 때 tab을 누르면 드러나도록 될 것임
+엔터를 누르면 #container로 이동함 */
+.skipnavi > li > a:focus, .skipnavi > li > a:active {
+    position: absolute;
+    left: 0;
+    top: 50px;
+    display: block;
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+    text-indent: 0px;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #f2f2f2;
+}
+
+
+/* --------------------------- 메인 페이지(index.html) 시작 */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 113px;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    /* 1,2,3,4,5 이런 식으로 세밀하게도 정할 수 있음
+    상징적 의미로 1, 10 50, 100 이런 단위로 많이 사용
+    페이지 상에 요소가 겹쳐지는 것이 여러 개 나오지 않으므로 그 것들 중에서 어떤 것이 위에 올지만 정하면 되니 z-index를 세밀하게 나누는 경우가 많이 않음 */
+}
+
+header > .header_area > h1 {
+    float: left;
+    padding: 45px 0 0;
+}
+
+header > .header_area > h1 > a {
+    display: block;
+    width: 270px;
+    height: 71px;
+    background: url("../images/logo.png") no-repeat;
+    /* h1 태그 - screen reader가 읽어주는 접근성 관련 태그
+    그렇기 때문에 글을 지울 수는 없고 감춰야 함 */
+    text-indent:-9999px;
+    /* 문단 들여쓰기와 관련된 text-index를 사용하여 감춤(?) */
+    /* HTML 구조에 엄연히 쓰여 있으니 screen reader는 읽을 것임 */
+    overflow: hidden;
+    /* 접근성을 위한 문자열 숨기기 위함 */
+}
+
+.header_cont {
+    float: right;
+    width: 780px;
+}
+.header_cont .util {
+    text-align: right;
+    padding-top: 10px;
+}
+.header_cont .util li {
+    display: inline;
+}
+/* li를 선택하지만 첫 번째 child라면 선택하는 것 */
+/* ::after - 그 이후를 말함 */
+.header_cont .util li:first-child::after {
+    content: "|";
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 10px;
+    color: #eee;
+    position: relative;
+    top: -2px;
+}
+.header_cont .util li a {
+    font-size: 14px;
+    color: #eee;
+}
+.header_cont .gnb {
+    float: right;
+    box-sizing: border-box;
+    padding-top: 5px;
+}
+.header_cont .gnb li {
+    float: left;
+}
+.header_cont .gnb li a {
+    display: block;
+    padding: 26px 40px;
+    font-size: 18px;
+    color: #fff;
+}
+.header_cont .gnb li:last-child a {
+    padding-right: 0;
+}
+
+/* 서브메뉴는 평상시에는 보이지 않음 */
+/* 하위메뉴 숨기기 */
+.gnb_depth {
+    position: absolute;
+    left: 0;
+    top: 113px;
+    width: 100%;
+    background-color: rgba(250, 100 ,0 , 0.85);
+    z-index: 100;
+    display: none;
+}
+/* 하위메뉴 보이기 */
+/* .gnb_depth {
+    position: absolute;
+    left: 0;
+    top: 113px;
+    width: 100%;
+    background-color: rgba(250, 100 ,0 , 0.85);
+    z-index: 100;
+} */
+.gnb_depth .submenu_list {
+    width: 1050px;
+    margin: 0 auto;
+    text-align: left;
+}
+.gnb_depth2_1 .submenu_list {
+    box-sizing: border-box;
+    padding-left: 480px;
+}
+.gnb_depth2_2 .submenu_list {
+    box-sizing: border-box;
+    padding-left: 600px;
+}
+.gnb_depth2_3 .submenu_list {
+    box-sizing: border-box;
+    padding-left: 730px;
+}
+.gnb_depth2_4 .submenu_list {
+    box-sizing: border-box;
+    padding-left: 945px;
+}
+.gnb_depth .submenu_list li {
+    display: inline;
+}
+.gnb_depth .submenu_list li a {
+    display: inline-block;
+    padding: 20px;
+}
+.gnb_depth .submenu_list li:last-child a {
+    padding-right: 0;
+}
+
+#container {
+    padding-bottom: 70px;
+}
+/* PC 롤링 */
+.main_rolling_mobile {
+    display: none;
+}
+/* 나중에 모바일의 rolling도 만들 것이기 때문에 지금은 PC 롤링을 하는 것이므로 이는 display:none으로 처리 */
+
+.visualRoll {
+    position: relative;
+    width: 100%;
+}
+
+.viewImgList {
+    position: relative;
+    width: 100%;
+}
+.viewImgList li {
+    text-align: center;
+    height: 550px;
+    line-height: 550px;
+    background-size: cover !important;
+}
+.viewImgList li.imgList0 {
+    position: relative;
+    z-index: 50;
+    background: url("../images/mainslide01.jpg") no-repeat center;
+}
+.viewImgList li.imgList1 {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: url("../images/mainslide02.jpg") no-repeat center;
+}
+.viewImgList li.imgList2 {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: url("../images/mainslide03.jpg") no-repeat center;
+}
+.viewImgList li .roll_content {
+    position: relative;
+}
+.viewImgList li .roll_content .roll_txtline {
+    position: absolute;
+    left: 0;
+    bottom: 60px;
+    width: 100%;
+    line-height: 1;
+    text-align: center;
+    font-size: 22px;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+.rollbtnArea {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 25px;
+    z-index: 200;
+}
+.rollbtnArea .rollingbtn {
+    width: 320px;
+    margin: 0 auto;
+    text-align: center;
+}
+.rollbtnArea .rollingbtn li {
+    display: inline-block;
+    margin-right: 5px;
+}
+.rollbtnArea .rollingbtn li.butt0 {
+    margin-left: 10px;
+}
+.rollbtnArea .rollingbtn li.play {
+    display: none;
+}
+.rollbtnArea .rollingbtn li a {
+    vertical-align: middle;
+}
+
+.about_area h2 {
+    padding: 55px 0 105px;
+    text-align: center;
+    font-size: 40px;
+}
+.about_area .about_box {
+    background-color: #f4f0e9;
+}
+.about_area .place_list li {
+    float: left;
+    width: 32%;
+    margin-left: 2%;
+    text-align: center;
+    position: relative;
+    top: -50px;
+}
+.about_area .place_list li:first-child {
+    margin-left: 0;
+}
+.about_area .place_list li .img_topplace {
+    width: 100%;
+    /* 그림파일 크기대로 나왔었는데 우리가 조정한 크기에 맞도록 나오게 함 */
+}
+.about_area .place_list li h3 {
+    font-weight: bold;
+    font-size: 18px;
+    padding-top: 25px;
+    color: #000;
+}
+.about_area .place_list p.txt {
+    box-sizing: border-box;
+    padding: 10px 30px 0;
+    width: 100%;
+    overflow: hidden;
+    /* 넘치는 것은 숨기는 것 */
+    word-break: keep-all;
+    /* 줄바꿈 할 때 단어 단위로 내려감 */
+    line-height: 1.8;
+    color: #666;
+}
+.about_area .place_list .view {
+    display: inline-block;
+    margin-top: 20px;
+    padding-top: 5px;
+    /* padding을 주지 않으면 위에 오는 줄과 딱 달라 붙어 있음 */
+    border-top: 2px solid #333;
+    color: #555;
+}
+
+.appbbs_area {
+    padding: 60px 0;
+}
+.appbbs_area > .appbbs_box > .app_line {
+    float: left;
+    width: 66%;
+    box-sizing: border-box;
+    padding: 45px 0;
+    text-align: center;
+    background: url("../images/bg_app.jpg") no-repeat;
+    font-size: 0;
+    /* 이 글자는 접근성을 위한 것이므로 text-indent로 없애던가 font-size:0로 없앨 수 있음
+    요소를 숨겨야 하면 width:0, height:0 이런 식으로 감출 수도 있음 */
+}
+.appbbs_area > .appbbs_box > .app_line > a {
+    display: inline-block;
+    width: 45.4%;
+    height: 100px;
+    line-height: 100px;
+    box-sizing: border-box;
+    padding-left: 75px;
+    text-align: left;
+    background: rgba(0, 0, 0, 0.3) url("../images/ico_katalk.png") no-repeat 20px 50%;
+    /* 백그라운드를 2개 줌(색깔과 이미지) */
+    border: 2px solid #fff;
+    margin-right: 10px;
+    font-size: 26px;
+    color: #fff;
+    vertical-align: middle;
+}
+/* a 태그 옆에 a 태그를 의미 */
+.appbbs_area > .appbbs_box > .app_line > a+a {
+    margin-right: 0;
+    padding-left: 85px;
+    background-image: url("../images/ico_phone.png");
+}
+.appbbs_box > .bbs_line {
+    float: right;
+    width: 30%;
+}
+.appbbs_box > .bbs_line h3 {
+    font-size: 26px;
+}
+.appbbs_box > .bbs_line > .notice_recent {
+    padding-top: 10px;
+}
+.appbbs_box > .bbs_line > .notice_recent > li {
+    padding: 6px 0;
+}
+.appbbs_box > .bbs_line > .notice_recent > li > a {
+    /* 글꼴에 따라 적절히 선택 */
+    display: block;
+    height: 20px;
+    /* block 형태로 20px의 높이를 가진 채 되어 있음 */
+    padding-left: 14px;
+    background: url("../images/ico_bullet.png") no-repeat 0 50%;
+    overflow: hidden;
+    white-space: nowrap;
+    /* 글자를 한 줄로 모아준다 */
+    text-overflow: ellipsis;
+}
+
+/* footer */
+footer {
+    border-top: 1px solid #ddd;
+}
+footer > .foot_area {
+    position: relative;
+    padding-bottom: 40px;
+}
+footer > .foot_area > .foot_list {
+    padding-top: 25px;
+}
+
+footer > .foot_area > .foot_list >li {
+    float: left;
+}
+footer > .foot_area > .foot_list li:first-child::after {
+    content: "|";
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 10px;
+    color: #000;
+    position: relative;
+    top: -2px;
+}
+footer > .foot_area > .foot_list > li > a {
+    font-weight: bold;
+    font-size: 15px;
+}
+footer > .foot_area > h2 {
+    padding-top: 25px;
+    font-size: 14px;
+    color : #666;
+}
+footer > .foot_area > .addr {
+    padding-top: 5px;
+    line-height: 1.4;
+    font-size: 13px;
+    color: #666;
+}
+footer > .foot_area > .addr .space0 {
+    letter-spacing: 0;
+}
+
+/* Copyright 스타일링 */
+footer > .foot_area > .copy {
+    padding-top: 3px;
+    font-size: 13px;
+    color: #666;
+    letter-spacing: 0;
+}
+footer > .foot_area > .snslink {
+    position: absolute;
+    right: 20px;
+    top: 50px;
+}
+footer > .foot_area > .snslink > li {
+    float: left;
+    margin-left: 60px;
+}
+
+footer > .foot_area > .snslink > li > a {
+    display: block;
+    width: 50px;
+    height: 74px;
+    text-indent: -9999px;
+    /* 글자 숨기기 위함 */
+    overflow: hidden;
+    background: url("../images/ico_blog_r.png") no-repeat;
+}
+/* 2번째 li의 a를 말함 */
+footer > .foot_area > .snslink > li + li > a {
+    background: url("../images/ico_facebook_r.png") no-repeat;
+}
+/* li:last-child 혹은 li+li+li를 통해 세 번째 li를 나타냄 */
+/* 앞에 li가 있는 li가 앞에 있는 li 태그를 말함 */
+/* 3번째 것을 선택할 때는 nth-child 이용 */
+/* nth-child가 아마 더 빠를 것으로 예상 */
+footer > .foot_area > .snslink > li + li + li > a {
+    background: url("../images/ico_instargram_r.png") no-repeat;
+}
+
+/* quick list */
+.quick_area {
+    position: fixed;
+    top: 171px;
+    right: 0;
+    width: 94px;
+    z-index: 100;
+}
+.quick_area > .quick_list > li {
+    text-align: center;
+    background-color: #282828;
+    font-size: 15px;
+}
+.quick_area > .quick_list > li > a {
+    display: block;
+    padding: 15px 0;
+    border-top: 1px solid #4d4d4d;
+}
+.quick_area > .quick_list > li:first-child > a {
+    border-top: none;
+}
+.quick_area > .quick_list > li > a > h3 {
+    padding-bottom: 10px;
+    color: #ddd;
+    letter-spacing: -1px;
+}
+.quick_area > .quick_list > li:last-child > a > h3 {
+    padding-bottom: 0;
+}
+.quick_area > .quick_list > li > a > p {
+    line-height: 1.3;
+    font-size: 12px;
+    color: #fff;
+}
+/* TOP */
+.to_top {
+    text-align: center;
+    background-color: #fff;
+}
+.to_top a {
+    display: block;
+    height: 45px;
+    box-sizing: border-box;
+    text-indent: -9999px;
+    /* 글자를 숨기기 위함 */
+    overflow: hidden;
+    border-left: 1px solid #a3a3a3;
+    border-bottom: 1px solid #a3a3a3;
+    background: url("../images/ico_totop.png") no-repeat center;
+    background-size: 50%;
+}
+
+
+/* --------------------------- 메인 페이지(index.html) 끝 */
+
+/* --------------------------- 로그인 페이지(login.html) 시작 */
+.login_wrap {
+    width: 508px;
+    margin: 100px auto 0;
+}
+
+h1.loginTit {
+    text-align: center;
+}
+h1.loginTit > a {
+    display: block;
+}
+h1.loginTit > a > img {
+    width: 100%;
+}
+
+.login_list {
+    width: 75%;
+    margin: 70px auto 20px;
+}
+.login_list > li {
+    position: relative;
+    margin-bottom: 4px;
+    height: 54px;
+    box-sizing: border-box;
+    padding-left: 50px;
+    /* border: 1px solid black; */
+    border-radius: 5px;
+}
+.login_list > li > a {
+    display: block;
+    height: 54px;
+    box-sizing: border-box;
+    line-height: 54px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+}
+.login_list > li:last-child {
+    margin-bottom: 0;
+}
+.login_list > li.kakao {
+    background: #f3e129 url("../images/ico_katalk.png") no-repeat 15px 50%;
+    background-size: 45px 45px;
+}
+.login_list > li.kakao > a { color: #202224; }
+.login_list > li.naver {
+    background: #00c300 url("../images/ico_naver.png") no-repeat 15px 50%;
+    background-size: 45px 45px;
+}
+.login_list > li.facebook {
+    background: #405ea9 url("../images/ico_face.png") no-repeat 15px 50%;
+    background-size: 45px 45px;
+}
+.login_list > li.email {
+    background: #888 url("../images/ico_cellphone.png") no-repeat 15px 50%;
+    background-size: 45px 45px;
+}
+.btnonoff_line {
+    width: 75%;
+    margin: 10px auto;
+    text-align: center;
+}
+.btnonoff_line .btn_onoff {
+    margin-left: 5px;
+    font-size: 14px;
+}
+.switch {
+    /* border: 1px solid black; */
+    position: relative;
+    display: inline-block;
+    width: 35px;
+    height: 22px;
+    margin: 0;
+    padding: 0;
+    border-radius: 16px;
+    background-color: #e5e5e5;
+    vertical-align: top;
+    appearance: none;
+    /* appearance: 운영체제 및 브라우저에 기본적으로 설정되어 있는 테마를 기반으로 요소를 표현할 때 사용 
+    appearance: none; -> 원래 쓰이는 속성을 없앰(원래 브라우저에서 표현해주는 그 디자인을 쓰지 않을 때 사용)
+    */
+    cursor: pointer;
+    z-index: 0;
+}
+/* switch보다 1px 작은 다른 요소 하나를 만들어 switch 위에 올릴 것임 */
+.switch::before {
+    content: "";
+    position: absolute;
+    width: 33px;
+    height: 20px;
+    /* 2px을 더 작게 잡음(1px씩 남겨둘 것이므로) */
+    border-radius: 15px;
+    background-color: #fff;
+    z-index: 1;
+    left: 1px;
+    /* 부모 1px 옆에 생길 것임 */
+    top: 1px;
+    /* 위에서 1px 내려온 채로 생길 것임 */
+}
+.switch::after {
+    content: "";
+    position: absolute;
+    z-index: 2; /* (?) */
+    width: 19px;
+    height: 19px;
+    /* 원을 만들기 위해 크기를 1px 작게 해서 width와 height를 같게 함 */
+    left: 1px;
+    top: 1px;
+    box-shadow: 0 2px 5px #999;
+    background-color: #fff;
+    border-radius: 50%;
+}
+/* --------------------------- 로그인 페이지(login.html) 끝 */
+
+/* --------------------------- 회원가입 페이지(join.html) 시작 */
+.location_area.member > .box_inner > form {
+    padding-top: 100px;
+}
+.appForm {
+    margin: 40px auto 0;
+}
+.appForm .info_pilsoo {
+    position: relative;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #000;
+    font-size: 15px;
+    color: #f00;
+}
+.appForm .pilsoo_item::before {
+    content: "*";
+    display: inline-block;
+    position: absolute;
+    left: 5px;
+    top: 0px;
+    width: 15px;
+    font-weight: bold;
+    font-size: 17px;
+    color: #f00;
+}
+.appForm .app_list {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+.appForm .app_list li {
+    padding: 8px 0;
+}
+.appForm .app_list li .tit_lbl {
+    position: relative;
+    float: left;
+    width: 150px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    line-height: 42px;
+    font-weight: bold;
+    font-size: 17px;
+    letter-spacing: -1px;
+}
+.appForm .app_list li .app_content {
+    float: right;
+    width: 770px;
+}
+.appForm .app_list li .app_content * {
+    vertical-align: top;
+}
+.appForm .app_list li .app_content.email_area .ico_space {
+    display: inline-block;
+    padding-top: 15px;
+}
+.appForm .app_list li .app_content label {
+    vertical-align: middle;
+}
+.appForm .app_list li .select_common {
+    width: 160px;
+    height: 45px;
+    background-position: 100% 50%;
+    border: 1px solid #ccc;
+}
+.appForm .app_list li .select_common select {
+    width: 200px;
+    height: 43px;
+}
+.appForm .app_list li .app_content.radio_area {
+    height: 45px;
+    box-sizing: border-box;
+    padding-top: 12px;
+}
+.appForm .app_list li .app_content.checkbox_area {
+    height: 45px;
+    box-sizing: border-box;
+    padding-top: 12px;
+}
+.appForm .app_list li textarea {
+    height: 245px;
+    /* 크기 수정 할 수 없도록 함 */
+    resize: none;
+}
+.btn_line {
+    padding: 20px 0;
+}
+/* --------------------------- 회원가입 페이지(join.html) 끝 */
+
+/* --------------------------- 내정보 페이지(mypage.html) 시작 */
+.myinfo dt {
+    background-color: #000;
+    color: #fff;
+    width: 170px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    font-size: 18px;
+}
+.myinfo dd {
+    border-top: 2px solid #000;
+}
+.regForm .reg_list {
+    padding: 0 0;
+    background: url("../images/bg_reglist.png") repeat-y;
+}
+.regForm .reg_list li {
+    min-height: 60px;
+    padding: 0;
+    border-bottom: 1px solid #ccc;
+}
+.regForm .reg_list li .tit_lbl {
+    position: relative;
+    float: left;
+    width: 150px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    line-height: 60px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.regForm .reg_list li .reg_content {
+    float: right;
+    width: 770px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-top: 22.5px;
+    font-size: 15px;
+}
+.regForm .reg_list li .reg_content * {
+    vertical-align: middle;
+}
+/* not(.gender) -> gender 클래스를 가진 것은 빼고 나머지 radio_area들만 적용한다는 뜻 */
+/* 여러 개를 뺼 때는 ,를 이용해서 하는 것이 낫지만 하나만 뺄 때는 not()을 사용 */
+.regForm .reg_list li .reg_content.radio_area:not(.gender) {
+    padding-top: 10px;
+}
+.regForm .reg_list li .reg_content .info_line {
+    padding: 5px 10px 5px 0;
+    font-size: 15px;
+}
+/* --------------------------- 내정보 페이지(mypage.html) 끝 */
+
+/* --------------------------- 리스트 페이지(notice_list.html) 시작 */
+.minisrch_form {
+    width: 100%;
+    text-align: right;
+    margin-bottom: 20px;
+}
+.minisrch_form .tbox {
+    padding: 0 5px 0 30px;
+    width: 200px;
+    height: 35px;
+    line-height: 30px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background: url("../images/ico_search.png") no-repeat 10px 50%;
+    background-size: 15px;
+}
+.bbsListTbl {
+    width: 100%;
+    border-top: 2px solid #384d75;
+}
+.bbsListTbl th, .bbsListTbl td {
+    padding: 10px;
+    box-sizing: border-box;
+    height: 55px;
+}
+.bbsListTbl th {
+    border-bottom: 1px solid #ccc;
+    background-color: #f0f3fa;
+}
+.bbsListTbl td {
+    text-align: center;
+    line-height: 1.3;
+    border-bottom: 1px solid #ccc;
+}
+.bbsListTbl td.tit_notice {
+    text-align: left;
+}
+.bbsListTbl td:nth-child(1) {
+    width: 10%;
+}
+.bbsListTbl td:nth-child(2) {
+    width: 55%;
+}
+.bbsListTbl td:nth-child(3) {
+    width: 15%;
+}
+.bbsListTbl td:nth-child(4) {
+    width: 20%;
+}
+
+.pagination {
+    padding: 40px 0 0;
+    text-align: center;
+}
+.pagination a {
+    display: inline-block;
+}
+.pagination a.pbtn {
+    display: inline-block;
+    padding: 7px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 0;
+}
+.pagination a .pagenum {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    vertical-align: middle;
+}
+.pagination a .currentPage {
+    background-color: #384d75;
+    color: #fff;
+    border-radius: 3px;
+}
+.pagination a:hover .pagenum {
+    background-color: #ddd;
+    border-radius: 3px;
+}
+/* --------------------------- 리스트 페이지(notice_list.html) 끝 */
+
+/* --------------------------- 공지사항 상세보기 페이지(notice_view.html) 시작 */
+.bbsview_list {
+    padding-bottom: 30px;
+    border-top: 2px solid #384d75;
+}
+.bbsview_list li {
+    box-sizing: border-box;
+    padding: 0 15px;
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+    color: #666;
+}
+.bbsview_list li.bbs_title {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 50px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 50px;
+}
+.bbsview_list li.bbs_date {
+    height: 40px;
+    line-height: 40px;
+    width: 50%;
+    float: left;
+}
+.bbsview_list li.bbs_hit {
+    height: 40px;
+    line-height: 40px;
+    width: 50%;
+    float: left;
+}
+.bbsview_list li.bbs_content {
+    clear: both;
+    min-height: 200px;
+    padding: 20px 15px;
+}
+.bbsview_list li.bbs_content .editor_content {
+    line-height: 1.4;
+}
+.near_list {
+    border-top: 1px solid #ccc;
+}
+.near_list li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+.near_list li:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.near_list li h4 {
+    float: left;
+    width: 100px;
+    padding: 0 0 0 50px;
+    background: url("../images/ico_nearNext.png") no-repeat 12px 50%;
+    font-size: 15px;
+}
+.near_list li h4.next {
+    background: url("../images/ico_nearPrev.png") no-repeat 12px 50%;
+}
+/* --------------------------- 공지사항 상세보기 페이지(notice_view.html) 끝 */
+
+/* --------------------------- 공지사항 프로그램 페이지(program.html) 시작 */
+.bodytext_area.place_area {
+    padding: 55px 0 0;
+}
+.program_list li {
+    float: left;
+    width: 31.5%;
+    margin: 0 0.9%;
+}
+.program_list li:nth-child(3n + 1) {
+    clear: both;
+}
+.program_list li .img_place {
+    display: block;
+    width: 100%;
+}
+.program_list li h3 {
+    padding: 40px 0 0;
+    font-weight: bold;
+    font-size: 22px;
+}
+.program_list li .subttl {
+    padding: 25px 0 0;
+    font-weight: bold;
+    font-size: 16px;
+    color: #fa6400;
+    letter-spacing: 0;
+}
+.program_list li .program_content {
+    padding: 15px 0 0;
+    line-height: 1.8;
+    font-size: 15px;
+}
+.program_list li .program_content p {
+    width: 100%;
+    overflow: hidden;
+    word-break: keep-all;
+    /* 단어들 단위로 띄어줌 */
+}
+.program_list li .program_content p .subtxt {
+    display: none;
+}
+.program_list li .btn_more {
+    padding: 10px 0 20px;
+    text-align: center;
+    font-size: 12px;
+}
+.program_list li .btn_more a {
+    display: inline-block;
+    padding: 5px 7px;
+    background-color: #384d75;
+    color: #fff;
+    border-radius: 3px;
+}
+/* --------------------------- 공지사항 프로그램 페이지(program.html) 끝 */
+
+/* --------------------------- 테블릿 반응형 시작 ---------------------- */
+@media screen and (max-width:1065px) and (min-width: 801px) {
+    .box_inner {
+        width: 100%;
+    }
+    header .header_area h1 {
+        padding-left: 20px;
+    }
+    .header_cont {
+        float: right;
+        width: 60%;
+        padding-right: 20px;
+    }
+    .header_cont .gnb li a {
+        padding: 26px 25px;
+    }
+    .gnb_depth .submenu_list {
+        width: 100%;
+        padding-left: 52%;
+    }
+    .gnb_depth .submenu_list a {
+        padding: 20px;
+    }
+    #container {
+        padding-bottom: 20px;
+    }
+    .about_area .place_list {
+        box-sizing: border-box;
+        padding: 0 20px;
+    }
+    .appbbs_area .appbbs_box {
+        box-sizing: border-box;
+        padding: 0 20px;
+    }
+    .appbbs_area .appbbs_box .app_line a {
+        font-size: 21px;
+    }
+
+    footer .foot_area {
+        box-sizing: border-box;
+        padding-left: 20px;
+    }
+    footer .foot_area .snslink li {
+        margin-left: 15px;
+    }
+
+    .quick_area .quick_list {
+        display: none;
+    }
+    .to_top {
+        position: fixed;
+        right: 20px;
+        bottom: 115px;
+        text-align: center;
+        background: none;
+        z-index: 100;
+    }
+    .to_top a {
+        display: block;
+        width: 45px;
+        height: 45px;
+        border: none;
+        background: url("../images/ico_totop_mo.png") no-repeat center;
+        background-size: 45px;
+    }
+
+    /* 회원가입 반응형 */
+    .appForm .app_list li .tit_lbl {
+        width: 21%;
+    }
+    .appForm .app_list li .app_content {
+        width: 79%;
+    }
+
+    /* 개인 정보 수정 */
+    .regForm .reg_list li .tit_lbl {
+        width: 21%;
+    }
+    .regForm .reg_list li .reg_content {
+        width: 79%;
+        padding-left: 30px;
+    }
+}
+/* --------------------------- 테블릿 반응형 끝 ---------------------- */
+
+/* --------------------------- 일반 폰 반응형 시작 ---------------------- */
+@media screen and (max-width: 800px) {
+    .box_inner { width: 100%; }
+    header {
+        height: 90px;
+        text-align: center;
+        z-index: 200;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    header .header_area h1 {
+        float: none;
+        width: 100%;
+        height: 50px;
+        text-align: center;
+        padding: 35px 0 0;
+    }
+    header .header_area h1 a {
+        display: inline-block;
+        width: 180px;
+        height: 23px;
+        background-size: 180px 23px;
+    }
+
+    /* 모바일 메뉴바 */
+    header > .header_area > .openMOgnb { 
+        display: block;
+        position: absolute;
+        left: 15px;
+        top: 35px;
+        width: 23px;
+        height: 16px;
+    }
+    header > .header_area > .openMOgnb span {
+        display: block;
+        box-sizing: border-box;
+        background-color: #fff;
+        width: 25px;
+        height: 3px;
+        margin-bottom: 4px;
+        border-radius: 10px;
+    }
+    header > .header_area > .openMOgnb > span + span { 
+        /* 앞에 span이 있는 span들 -> span + span */
+        width: 17px;
+    }
+    header > .header_area > .openMOgnb span:last-child {
+        width: 25px;
+        margin-bottom: 0;
+    }
+    .header_cont {
+        float: none;
+        width: 100%;
+        background-color: #31353d;
+        /* display: none; */
+    }
+    .header_cont .util {
+        padding: 20px;
+    }
+    .header_cont .util li {
+        float: left;
+    }
+    .header_cont .util li:first-child:after {
+        /* util의 li의 첫 번째 다음에 있는 가상 요소 선택 */
+        content: "|";
+        display: inline-block;
+        padding: 0 10px;
+        font-size: 10px;
+        color: #a2a3a3;
+        position: relative;
+        top: -1px;
+    }
+    .header_cont .util li a {
+        font-size: 16px;
+        color: #fff;
+    }
+
+    .header_cont .closePop {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 15px;
+    }
+    .header_cont .closePop a {
+        display: block;
+        width: 60px;
+        height: 60px;
+        text-indent: -9999;
+        /* 글자는 안보이게 함 */
+        overflow: hidden;
+        background: url("../images/btn_closeMenu.png") no-repeat;
+        background-size: 60px;
+    }
+    .header_cont .gnb {
+        float: none;
+        box-sizing: border-box;
+        padding-top: 0;
+        height: auto;
+        border-top: 1px solid #83868b;
+    }
+    .header_cont .gnb li {
+        float: left;
+        width: 50%;
+        text-align: left;
+        box-sizing: border-box;
+        border-bottom: 1px solid #83868b;
+        border-right: 1px solid #83868b;
+    }
+    .header_cont .gnb li a {
+        display: block;
+        padding: 0 0 0 65px;
+        height: 60px;
+        line-height: 60px;
+        background: url("../images/ico_gnb01.png") no-repeat 10px center;
+        background-size: 49px;
+        font-size: 16px;
+        color: #fff;
+    }
+    .header_cont .gnb li + li a {
+        background-image: url("../images/ico_gnb02.png");
+    }
+    .header_cont .gnb li + li + li a {
+        background-image: url("../images/ico_gnb03.png");
+    }
+    .header_cont .gnb li + li + li + li a {
+        background-image: url("../images/ico_gnb04.png");
+    }
+}
+/* --------------------------- 일반 폰 반응형 끝 ---------------------- */

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생성자</title>
+</head>
+<body>
+    <h2>생성자</h2>
+    <script>
+        // 하나의 객체만 만드는 경우에는 바로 중괄호 열어서 객체 만들어주는 것이 편함
+        // 리터럴 표기법으로 객체를 생성할 시 객체 하나를 아주 빠르게 만들 수 있다. 하지만 여러 개의 객체를 만드는 경우에는 반복작업으로 인해 힘들어진다.
+
+        // 생성자를 이용한 객체 생성 -> 똑같은 형태의 객체를 여러 개 만들 때 편하게 만들 수 있다!(자동차에 해당하는 객체들은 전부 다 색깔, 가격, 브랜드를 갖고 있어야 하니)
+
+        function Car(brand, color, price) {
+            this.brand = brand,
+            this.color = color;
+            this.price = price
+            this.engineStart = function() {
+                console.log(this.brand + " 시동 켜기");
+            }
+            this.engineStop = () => {
+                console.log(this.brand + " 시동 끄기");
+            }
+        }
+
+        const mycar = new Car("Ferrari", "Red", 65000); // new를 통해 생성자로서 활동함(필드를 만들면서 거기에 값들을 세팅해놓음, 그것이 끝나고 주소값을 가져와서 mycar에 넣어주는 것 -> 즉, 주소값을 mycar에서 받는 것!)
+        const momcar = new Car("K7", "White", 4000);
+
+        console.log(mycar.brand);
+        console.log(mycar.color);
+        console.log(mycar.price);
+        mycar.engineStart();
+        mycar.engineStop();
+        
+        console.log(momcar.brand);
+        console.log(momcar.color);
+        console.log(momcar.price);
+        momcar.engineStart();
+        momcar.engineStop();
+    </script>
+</body>
+</html>

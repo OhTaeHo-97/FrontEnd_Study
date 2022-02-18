@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>심볼</title>
+</head>
+<body>
+    <h2>심볼</h2>
+    <script>
+        const symbol1 = Symbol("apple"); // apple을 Symbol로 감싼 것이 들어간 것(문자열을 Symbol로 만들어서 넣어준 것)
+        const symbol2 = Symbol("apple");
+
+        // === : 양쪽의 타입과 값이 같으면 true / 아니라면 false
+        // 같은 문자열이더라도 Symbol은 고유한 값을 만들기 때문에 둘을 비교하면 서로 다르게 나옴
+        console.log(symbol1 === symbol2); // false
+
+        const symbol3 = Symbol("banana"); // banana라는 값을 Symbol로 만들어서 넣어놓음(symbol3라는 값이 어느 공간에 생기면서 값이 들어있음)
+        const symbol4 = symbol3; // symbol4 만들면서 symbol3의 값을 넣어줌
+        
+        // symbol3의 값을 그대로 symbol4에 넣어줬기 때문에 true가 됨
+        console.log(symbol3 === symbol4); // true
+    </script>
+</body>
+</html>

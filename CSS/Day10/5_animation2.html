@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation - 2</title>
+    <style>
+        /* 0% 50% 100% */
+        /* 그냥 rotate 쓰면 시계 방향 혹은 반시계방향으로 회전하는데 x축 방향으로 회전할 것인지 y축 방향으로 회전할 것인지 아래 두 개를 이용
+        rotateX
+        rotateY */
+        .box {
+            width: 100px;
+            height: 100px;
+            margin: 100px;
+            background-color: deeppink;
+            /* animation-name: rotating;
+            animation-duration: 1.5s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate; */
+            animation: rotating 1.5s infinite alternate;
+            animation-timing-function: linear;
+            /* 애니메이션이 처음에 천천히 가다가 나중에 빠르게 움직였는데 linear를 통해 일정한 움직임으로 움직임 */
+        }
+
+        @keyframes rotating {
+            0% {
+                transform: perspective(200px) rotateX(0deg) rotateY(0deg);
+            }
+            50% {
+                transform: perspective(200px) rotateX(-180deg) rotateY(0deg);
+                /* 아래로 돌기 */
+                background-color: pink;
+            }
+            100% {
+                transform: perspective(200px) rotateX(-180deg) rotateY(-180deg);
+                /* 오른쪽으로 돌기 */
+                /* rotateX rotateY 순서로 적어줘야 함, 그래서 rotateX(-180deg)를 적지 않았을 경우 rotate로 인식하고 시계방향으로 돌음  */
+            }
+            /* 입체감이 없는 이유는 너무 멀리서 바라봐서 그렇기 때문 */
+            /* 너무 멀리서 보니까 뒤집힐 때 가까워보이는 원근감이 없어지고 평면으로 보이게 됨(너무 거리가 멀어서) */
+            /* 그래서 perspective라는 것을 이용해서 가깝게 와줘야 함! */
+            /* perspective(200px) -> 관점을 200px만큼 떨어진 곳에 있다고 치고 하는 것 */
+        }
+    </style>
+</head>
+<body>
+    <h2>animation - 2</h2>
+    <div class="box"></div>
+</body>
+</html>

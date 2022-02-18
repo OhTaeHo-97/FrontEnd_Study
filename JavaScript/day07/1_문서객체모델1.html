@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서객체 모델 - 1</title>
+</head>
+<body>
+    <h2>문서객체 모델 - 1</h2>
+    <ul>
+        <li name = "view">HTML</li>
+        <li>CSS</li>
+        <li class = "js">JavaScript</li>
+        <li class = "js">Ajax</li>
+        <li id = "server">Apache</li>
+        <li name = "view">php</li>
+    </ul>
+    <script>
+        const tagName = document.getElementsByTagName("li"); // 이 변수가 여러 개의 element들을 받아오기 때문에 li라는 tag의 요소들을 전부 다 찾아왔음 -> 총 6칸짜리 배열이 만들어졌을 것임(각 요소들이 담겨있는)
+        for(let i = 0; i < tagName.length; i++) {
+            console.log(tagName[i]);
+        }
+
+        console.log("=========================");
+        const className = document.getElementsByClassName("js");
+        for(let i in className) {
+            console.log(className[i]);
+            // console.log(i);
+        }
+        
+        console.log("=========================");
+        const id = document.getElementById("server"); // 유일한 요소에 주는 것이 id이기 때문에 element
+        // id는 유일한 요소이기 때문에 배열이 아님!
+        console.log(id);
+
+        console.log("=========================");
+        const name = document.getElementsByName("view"); // name은 여러 개일 수 있으므로 elements(배열)
+        for(let e of name) {
+            console.log(e);
+            e.style.border = "1px solid red";
+        }
+        const querySelector = document.querySelectorAll('li.js'); // className으로 가졌을 때랑 같음(?)(CSS 선택자를 쓸 수 있다는 것이 장점)
+        for(let e of querySelector) {
+            // innerHTML = 여는 태그와 닫는 태그 사이에 있는 문자열을 담는 프로퍼티
+            e.innerHTML = e.innerHTML + "입니다."; //li.js로 찾아옴 -> class가 js인 li 태그들을 받아왔을 것임 -> 각 요소들을 객체로 받아왔음 -> e라는 이름으로 하나씩 꺼내옴, 변수는 공간으로서 활용이 가능함(즉, e.innerHTML에 새로운 값을 넣어줄 수 있음)
+        }
+
+        // 요소 내부에는 style과 같은 여러 property들이 있을 것이고 그 안에도 style을 지정해주는 여러 property들이 있을 것임
+        // 지금은 아무 style 지정되어 있지 않아 다 빈 문자열로 되어 있음
+        // 요소 안에 어떤 객체가 있고 그 안에 또 여러 property들이 있음
+        // 이 property들을 우리는 바꿔줄 수 있음
+        // 변수가 담고 있는 값들이 (?)
+        // CSS - 처음부터 설정됨(초기설정), 사용자가 행위를 함으로써 변화되는 것은 JS로 style을 변경시켜줘야 함
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timeout</title>
+</head>
+<body>
+    <h2>timeout</h2>
+    <script>
+        let to = window.setTimeout(function() {
+            alert('5초가 흘렀습니다!');
+        }, 5000);
+
+        window.clearTimeout(to); // to는 5초 뒤에 alert 뜰 것인데 window.clearTimeout 때문에 바로 취소됨 -> 아무것도 뜨지 않을 것임!(5초 뒤에 하라고 했는데 바로 취소했으므로 아무 것도 뜨지 않음)
+
+        function sayHello() {
+            for(let i = 0; i < 10; i++) {
+                document.write("안녕하세요!!<br>");
+            }
+        }
+
+        window.setTimeout(sayHello, 3000);
+    </script>
+</body>
+</html>

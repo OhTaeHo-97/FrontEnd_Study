@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서객체 모델 - 2</title>
+    <script>
+        window.onload = function() {
+            const gnb = document.getElementById("gnb");
+            console.log(gnb);
+            console.log(gnb.parentNode);
+            console.log(gnb.childNodes); // text, ul, text node -> text라는 노드가 양쪽에 있고 그것이 우리가 쓴 값을 받아줄 것이다라는 것(ul 내부에도 텍스트를 쓸 수 있는데 이를 받아주는 것이라고 생각하면 됨)(즉, nav 다음에 공백이 있으니 text가 있고, 그 안에 ul, nav 끝날 때 공백이 또 있으니 text가 하나 더 있다)(여백이 없어도 태그 안에 텍스트를 쓸 수 있으니 text 노드는 존재한다!)(해당 요소와 새로운 요소들 사이에는 text 노드가 항상 포함됨!)
+            // childNodes: 비요소 노드들도 포함(이런 식으로 접근하려면 거기에서 공백이 몇 개가 있는지 세보고 계산해서 접근해야 함)
+
+            // 보통 요소만 사용하는 경우들이 많을 것이니 아래와 같이 사용
+            console.log(gnb.children); // 안에 있는 HTMLCollection이 나옴(즉, 요소 노드들만 담겨있음!)(이를 이용하는 경우가 많음)
+
+            console.log(gnb.children[0]); // ul요소가 됨
+
+            console.log(gnb.children[0].nextSibling); // text 노드(비요소 노드도 포함함)
+            console.log(gnb.children[0].nextElementSibling); // 다음 요소노드 형제(null이 나올 것임)
+
+            console.log(gnb.children[0].previousElementSibling); // 요소만 찾는 것
+            console.log(gnb.children[0].previousSibling); // 비요소 노드도 포함
+
+            console.log(gnb.children[0].children[1]);
+
+            console.log(gnb.children[0].children[1].nextElementSibling);
+
+            console.log(gnb.children[0].firstChild); // text 노드
+            console.log(gnb.children[0].firstElementChild); // 내용1 li 요소
+        } // window가 준비된 다음에(HTML이 다 준비된 다음에) 이 함수를 호출해줌
+        // const gnb = document.getElementById("gnb"); // HTML이 다 준비되기 전에 script를 더 위에 썼으니 이것이 먼저 실행될 것임
+        // // 다 준비되기 전에 gnb 아이디 찾으려고 하니 문제가 됨
+        // console.log(gnb);
+    </script>
+</head>
+<body>
+    <h2>문서객체 모델 - 2</h2>
+    <div>
+        <nav id="gnb">
+            <ul>
+                <li class="first">내용1</li>
+                <li>내용2</li>
+                <li>내용3</li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

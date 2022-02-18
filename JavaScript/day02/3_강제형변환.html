@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>강제 형변환</title>
+</head>
+<body>
+    <h2>강제 형변환</h2>
+    <script>
+        const num1 = "10";
+        const num2 = "20";
+        console.log(`${num1} + ${num2} = ${num1 + num2}`); // 10 + 20 = 1020
+
+        Number(num1); // 실제 num1 공간을 바꾸는 것과 상관없이 문자열 10을 숫자로 바꾼 것 뿐
+        Number(num2);
+        console.log(`${num1} + ${num2} = ${num1 + num2}`); // 10 + 20 = 1020
+        // 변수를 공간으로 한 번은 써야 한다 -> 즉 다시 값을 대입해서 바꿔줘야 함(정수 10으로 대입해줘야 바뀜)
+        // num1 = Number(num1);
+        // num2 = Number(num2);
+        // const로 선언하면 위처럼 대입해주는 것이 불가능함
+        // let으로 선언한 변수는 안에 담겨있는 값 자체를 바꾸는 것이 가능
+
+        console.log(`${num1} + ${num2} = ${Number(num1) + Number(num2)}`); // 10 + 20 = 30
+        console.log(`${num1} + ${num2} = ${num1 + num2}`); // 10 + 20 = 1020
+    </script>
+</body>
+</html>

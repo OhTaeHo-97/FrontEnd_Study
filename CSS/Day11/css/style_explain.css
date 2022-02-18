@@ -1,0 +1,115 @@
+#container {
+    width: 100%;
+}
+
+header {
+    width: 100%;
+}
+
+header > h1 {
+    text-align: center;
+    font-size: 3em;
+}
+
+#menus {
+    width: 100%;
+}
+
+#menus > div {
+    border: 1px solid black;
+    height: 400px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+#menus h2 {
+    position: absolute;
+    padding: 5px;
+    bottom: 5%;
+    right: 3%;
+    color: white;
+    text-shadow: 3px 3px 5px black;
+    font-size: 2em;
+}
+
+#menu1 {
+    background: url("../images/dish1.jpg") no-repeat center;
+    background-size: cover;
+}
+
+#menu2 {
+    background: url("../images/dish2.jpg") no-repeat center;
+    background-size: cover;
+}
+
+#menu3 {
+    background: url("../images/dish3.jpg") no-repeat center;
+    background-size: cover;
+}
+
+#menu4 {
+    background: url("../images/dish4.jpg") no-repeat center;
+    background-size: cover;
+}
+
+#menu5 {
+    background: url("../images/dish5.jpg") no-repeat center;
+    background-size: cover;
+}
+
+footer {
+    width: 100%;
+    background-color: black;
+    height: 100px;
+}
+
+footer > p {
+    font-size: 1.5em;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+}
+
+/* 컴퓨터 화면이 기본이면 밑에 테블릿, 핸드폰 순서로 작성
+max-width로 잡아줘야 함!(큰 곳부터 가려면 max-width로 잡음)
+지금은 작은 곳부터 거꾸로 올라가는 것이니 min-width로 잡아주면 됨 */
+
+@media screen and (min-width: 768px) {
+    #menus {
+        display: flex;
+        flex-wrap: wrap;
+        /* flex-wrap - 
+        nowrap: 부모 너비에 맞게 요소들의 너비를 강제 축소
+        wrap: 부모 너비보다 요소들의 총 너비가 크면 나머지 요소들을 다음 줄로 줄바꿈 */
+        justify-content: space-between;
+    }
+
+    #menu1, #menu2, #menu3, #menu4 {
+        width: 49%;
+        /* 여백 때문에 49%로 한 것임 */
+    }
+
+    #menu5 {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    #menus > div {
+        width: 32%;
+    }
+
+    #menu5 {
+        /* flex-grow: 2; */
+        /* 증가분을 줬기 때문에 다른 옆에 있는 4와 flexible로 배치될 때 빈 여백들을 맞추게 될 것임 */
+        /* flex-shrink: 2; */
+        /* 줄어들 때도 조절해주려고 shrink를 넣을 수 있음 */
+        /* 보통 shrink와 grow를 같이 맞춰주는 경우가 많음 */
+        /* flex-basis: 0; */
+        /* basis는 대부분 0으로 설정함 */
+
+        flex: 2 2 0;
+        /* 위에 grow, shrink, basis를 합친 것 */
+        margin-left: 1.7%; 
+    }
+}

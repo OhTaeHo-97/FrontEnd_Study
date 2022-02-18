@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우선순위</title>
+    <style>
+        #id-style-with-important {
+            background-color: hotpink !important;
+        }
+
+        div {
+            display: block;
+            padding: 30px;
+            margin: 10px;
+            background-color: white;
+            border: 1px solid black;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        #id-style {
+            background-color: blue;
+            /* id로 적용한 것이 있으니 이것이 점수가 더 높아 이것으로 적용됨 */
+        }
+
+        .class-style {
+            background-color: red;
+        }
+        
+        .class-style2 {
+            background-color: gold;
+        }
+
+        div {
+            background-color: purple;
+            /* 같은 점수를 갖고 있음(둘 다 tag로 줬으니)
+            그러면 나중에 적용한 것이 적용됨 */
+        }
+
+    </style>
+</head>
+<body>
+    <h2>우선순위</h2>
+    <div style = "background-color: green;" id="id-style-with-important">div 1번(important 적용)</div>
+    <div style = "background-color: green;" id="id-style">div 2번(인라인 스타일 적용 - 1000점)</div>
+    <div id="id-style">div 3번</div>
+    <div class = "class-style">div 4번(class 스타일 - 10점)</div>
+    <div>div 5번(마지막에 적용한 스타일)</div>
+    <div class = "class-style class-style2">div 6번(마지막에 적용한 스타일)</div>
+    <!-- 클래스, 아이디 모두 띄어쓰기를 통해 2개 이상 줄 수 있음, 혹은 하나를 더 써서 줄 수도 있음(ex. id = "id-style" id = "id-style2") -->
+    <div class = "class-style" class = "class-style2">div 7번(id나 class 속성은 나누어서 적용하면 먼저 적용한 속성의 스타일이 우선이 된다.)</div>
+    <!-- 같은 class를 나눠서 줄 때는 아이디나 클래스 속성은 나누어서 적용하면 먼저 적용한 속성의 스타일이 우선이 된다.(뒤에 것이 무시된다고 보면 됨) -->
+</body>
+</html>

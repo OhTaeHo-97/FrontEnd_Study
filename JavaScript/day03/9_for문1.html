@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for문 - 1</title>
+</head>
+<body>
+    <h2>for문 - 1</h2>
+    <script>
+        let num = 0;
+        while(num < 10) {
+            num++;
+            console.log(num, '번째 반복중입니다.');
+        }
+
+        for(num = 0; num < num < 10; num++) { // 증감식은 매 반복마다 마지막으로 수행됨(num++은 안에 있는 문장 다 수행하고 수행됨)
+            // while문은 num++이 앞에 있어 num으로 출력해도 1 ~ 10이 나옴
+            // for문은 num++을 나중에 하니 0 ~ 9로 나옴
+            console.log(num + 1, '번째 반복중입니다.');
+        }
+        // 초기식 -> 조건식 연산 -> true면 반복 / false면 탈출 -> 증감식
+        //       -> 조건식 연산 -> true면 반복/ false면 탈출 -> 증감식
+        //       ...
+        // for문은 다음 반복으로 넘어가기 위해서는 항상 증감식과 조건식 연산을 무조건 함(다음 반복으로 갈 때)
+    </script>
+</body>
+</html>

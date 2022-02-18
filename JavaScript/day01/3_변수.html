@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수</title>
+</head>
+<body>
+    <h2>변수</h2>
+</body>
+<script>
+    'use strict';
+    // strict - 엄격
+    // js에서 암묵적으로 되는 것들이 있는데 그런 것들을 확실하게 엄격하게 검사하겠다라는 뜻으로 써주는 것
+    // JS의 엄격 모드를 이용할 때 사용하는 것
+    // var num = 10;
+    // num이라는 변수를 선언하면 공간이 만들어짐, 10을 넣고 있음 - num이 의미하는 것은 공간 자체를 의미(= 왼쪽에 존재)
+    // var num = 20;
+    // console.log(num);
+    // num이라는 변수에 들어가있는 값을 출력
+    // num이 의미하는 것은 num이라는 저장공간이 갖고 있는 값을 의미
+    // num이 갖고 있는 값을 의미
+
+    // let num2 = 100;
+    // let num2 = 200;
+
+    let num = 100;
+    num = 200;
+    console.log(num);
+    console.log('num'); // 변수를 이용할 때에는 이름 그대로 사용(따옴표로 묶지 않는다)
+    // ''로 묶으면 문자열 처리가 되니 '' 없이 써야 식별자 처리가 됨(변수명은 '' 없이 써줘야 함)
+
+    let str;
+    console.log(str); // undefined
+    // undefined - type이 정해지지 않았다는 뜻
+    // JS는 변수에 담는 값이 그 변수가 담을 수 있는 것이 정해져있는 것이 아님(아무거나 담았다가 바뀔 수 있음)
+    // 그렇기 때문에 어떠한 값도 담지 않았다면 값도 정해지지 않았지만 값 이전에 타입도 정해지지 않음(저장공간 자체의 타입은 없지만 안에 담겨있는 것은 엄연히 형태가 있음 -> 그 형태가 정해지지 않았다는 것)
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz</title>
+</head>
+<body>
+    <h2>Quiz</h2>
+    <script>
+        let choice = Number(prompt("다음 중 주말 프론트엔드 강사의 이름은?\n1. 김사과\n2. 반하나\n3. 정다솔\n4. 이체리"));
+
+        // if(choice == 3) {
+        //     console.log('정답입니다!');
+        // } else if(choice == 1 || choice == 2 || choice == 4) {
+        //     // choice == 1 || 2 || 4 -> 값이 1이 아니면 2, 2도 아니면 4 이런 의미
+        //     console.log('오답입니다...');
+        // } else {
+        //     console.log('잘못된 값을 입력하셨습니다!');
+        // }
+
+        // switch문의 영역 - {} 안
+        // case - 진입점
+        // 정답을 입력했다면 choice의 값이 3이라는 뜻, 그럼 3으로 진입해서 밑으로 수햄
+        // 그래서 break를 안 쓰면 밑에 있는 것들이 다 수행됨
+        switch(choice) {
+            case 3:
+                console.log('정답입니다!');
+                break;
+            case 1: // break문이 없기에 그대로 아래를 실행하여 이렇게 하면 case 1,2,4일 때를 같이 정리할 수 있음
+            case 2:
+            case 4:
+                conssole.log('오답입니다...');
+                break;
+            default:
+                console.log('잘못된 값을 입력하셨습니다!');
+                break;
+        }
+    </script>
+</body>
+</html>

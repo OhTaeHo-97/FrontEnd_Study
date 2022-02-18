@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 - 2</title>
+</head>
+<body>
+    <h2>객체 - 2</h2>
+    <script>
+        const mycar = {
+            brand:'Ferrari',
+            color:'Red',
+            price:65000,
+            engineStart:function() {
+                console.log(this.brand + " 시동 켜기");
+            },
+            engineStop:function() {
+                console.log(this.brand + " 시동 끄기");
+            }
+        }
+
+        console.log(mycar.price);
+        mycar.price = 55000;
+        console.log(mycar.price);
+
+        // (?) 한개의 공간에는 하나의 값만 담을 수 있음
+        // mycar라는 이름으로 상수로 변수를 선언헀으니 하나의 값을 담을 수 있도록 생성됨
+        // 중괄호 안에 있는 것들은 어떤 그룹을 지어서 어딘가에 만들어졌을 것임 -> 이는 이름이 없고 주소값만 있는 것
+        // mycar -> 해당 주소지의 주소값을 담는 것
+        // mycar.price -> 번지수.price 하고 있는 것 -> 해당 번지수 안에 있는 price를 의미 -> 번지수 안에 있는 price로 찾아가는 것(mycar는 주소값을 담고 있는 것!)
+        // mycar는 상수로 선언됐으니 담고있는 주소값은 바뀔 수 없음, 대신 거기로 찾아가서 price에 55000을 넣을 수 있는 것!
+        // 내부에 있는 property들은 수정 가능하다!
+
+        let data1 = 10;
+        let data2 = data1;
+        data2 += 5;
+        console.log(data1);
+        
+        let obj1 = { data:10 };
+        let obj2 = obj1;
+        obj2.data += 5;
+        console.log(obj1.data);
+    </script>
+</body>
+</html>

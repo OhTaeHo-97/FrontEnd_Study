@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼 객체</title>
+    <script>
+        window.onload = function() {
+            const frm1 = document.frm1; // frm1 이름인 form을 담고 있음
+            console.log(frm1);
+            const frm2 = document.frm2;
+
+            console.log(frm1.search.placeholder); // frm1 form 안에 이름이 search인 것을 나타냄
+            frm1.search.placeholder = "검색어 부탁드려요";
+            
+            // frm2.userid.placeholder;
+            frm2.userid.value = "apple"; // 실행할 때 apple이 써져있음(아이디 부분에)
+            console.log(frm2.userid.value);
+            console.log(frm2.userid.placeholder);
+
+            // document.forms // 모든 form들을 갖고 있는 배열
+            // document.forms = 문서에 있는 form들을 다 가진 배열
+            // document.forms[1] : 문서에 있는 form들 중 두번째 form
+            // document.forms[1][1] : 문서에 있는 form들 중 두 번째 form 안의 두 번째 input
+            console.log(document.forms[1][1].placeholder);
+            console.log(document.forms['frm2'].elements['userid'].value); // frm2 form의 userid element의 value
+
+            console.log(document.getElementById('id').value);
+        }
+    </script>
+</head>
+<body>
+    <h2>폼 객체</h2>
+    <form name="frm1">
+        <input type="search" name="search" placeholder = "검색어를 입력하세요"><br>
+        <input type="submit" value="확인">
+    </form>
+    <hr>
+    <form name="frm2">
+        <input type="text" name="userid" id = "id" placeholder = "아이디를 입력하세요"><br>
+        <input type="password" name="userpw" id="pw" placeholder = "비밀번호를 입력하세요"><br>
+        <input type="submit" value="확인">
+    </form>
+</body>
+</html>

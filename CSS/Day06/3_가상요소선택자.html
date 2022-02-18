@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상 요소 선택자</title>
+    <style>
+        /* tx1 이전에 무언가를 해줄 수 있음
+        여기서는 tx1 앞에 별 하나를 추가해줬음 
+        해당하는 스타일이 tx1 앞에 입혀지거나 쓰여지거나 할 수 있음 */
+        .tx1::before {
+            content:'☆';
+            color:red;
+            /*어떤 내용을 적어줄 수 있음*/
+            /* 별이 텍스트로 인식되지는 않음, color는 별에 적용됨 */
+        }
+        /* tx2 뒤에 무언가를 해줄 수 있음
+        여기서는 tx2 뒤에 별 하나를 추가해줬음 
+        해당하는 스타일이 tx2 뒤에 입혀지거나 쓰여지거나 할 수 있음 */
+        .tx2::after {
+            content:'★';
+        }
+
+        a:visited {
+            text-decoration: none;
+            color:maroon;
+        }
+        
+        a:link {
+            text-decoration: none;
+            color:hotpink;
+        }
+
+        a:hover {
+            color: dodgerblue;
+            text-decoration: underline;
+        }
+
+        a:active {
+            color:tomato;
+        }
+    </style>
+</head>
+<body>
+    <h2>가상 요소 선택자</h2>
+    <p class = "tx1">before</p>
+    <p class = "tx2">after</p>
+
+    <a href = "https://www.naver.com">네이버</a>
+    <a href = "https://www.sadfasdfsdaf.asdfacsv">여긴 어디?</a>
+</body>
+</html>

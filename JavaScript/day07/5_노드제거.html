@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드제거</title>
+</head>
+<body>
+    <h2>노드제거</h2>
+    <div id="list">
+        <p>HTML</p>
+        <p id="item">CSS</p>
+        <p id="js" style = "background-color: gold; color: deeppink;">JavaScript</p>
+        <p>TypeScript</p>
+    </div>
+    <button onclick = "removeNode()">요소 노드 삭제</button>
+    <button onclick = "removeAttr()">속성 노드 삭제</button>
+</body>
+<script>
+    const removeNode = function() {
+        const parent = document.getElementById("list");
+        const removeItem = document.getElementById("item"); // 이것을 지울 예정
+        const result = parent.removeChild(removeItem);
+        console.dir(result); // 삭제되는 노드가 보임(마지막 것을 돌려준다!)
+        // parent.appendChild(result); // 지운 다음 다시 추가되게 됨
+    }
+    const removeAttr = function() {
+        const js = document.getElementById("js");
+        js.removeAttribute("style"); // style이라는 attribute를 지움!(실제로 HTML 구조에 있는 style이 삭제됨)
+    }
+</script>
+</html>

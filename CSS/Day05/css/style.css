@@ -1,0 +1,19 @@
+/* 파일 전체가 css 문법 적용 */
+h2 {
+    font-size: 50px;
+}
+
+p {
+    font-size: 20px;
+}
+
+ul {
+    list-style-type: none;
+    color: deeppink;
+}
+
+li {
+    display: inline-block;
+    margin-right: 20px;
+    font-weight: bold;
+}

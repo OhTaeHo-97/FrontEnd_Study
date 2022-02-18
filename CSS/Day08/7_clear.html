@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clear</title>
+    <style>
+        body {
+            margin: 20px 30px;
+            max-width: 800px;
+        }
+        
+        div {
+            padding: 10px;
+            text-align: justify;
+            font-size: 15px;
+        }
+
+        #c1 {
+            float: left;
+            width: 35%;
+            background-color: wheat;
+        }
+
+        #c2 {
+            float: right;
+            width: 50%;
+            background-color: silver;
+        }
+
+        #c3 {
+            /* clear: left; */
+            /* left 같은 경우 left가 더 크므로 밑으로 내려옴 */
+            /* clear: right; */
+            /* right 같은 경우 left보다 right가 더 작기 때문에 right 바로 밑으로 내려오는데 left 오른쪽으로 쓰여짐 */
+            /* right로 한 상태에서 c1에 margin-bottom을 주면 c1 오른쪽으로 나와있는 text는 그대로 있고 아래로 내려간 텍스트만 margin-bottom으로 인해 그만큼 더 내려감 */
+            clear: both;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <h2>clear</h2>
+    <div id = "c1">한적한 밤 산책하다 보면 어김없이 생각나는 얼굴 반짝이는 별을 모아 그리는 그런 사람 좁다란 길 향기를 채우는 가로등 빛 물든 진달래꽃 이 향기를 그와 함께 맡으면 참 좋겠네 보고 싶어라 그리운 그 얼굴 물로 그린 그림처럼 사라지네 보고 싶어라 오늘도 그 사람을 떠올리려 산책을 하네 대기는 차갑게 감싸고 생생하게 생각나는 그때 안타까운 빛나던 시절 뒤로하고 가던 보고 싶어라 그리운 그 얼굴 물로 그린 그림처럼 사라지네 보고 싶어라 오늘도 그 사람을 떠올리려 산책을 하네</div>
+    <div id = "c2">한적한 밤 산책하다 보면 어김없이 생각나는 얼굴 반짝이는 별을 모아 그리는 그런 사람 좁다란 길 향기를 채우는 가로등 빛 물든 진달래꽃 이 향기를 그와 함께 맡으면 참 좋겠네 보고 싶어라 그리운 그 얼굴 물로 그린 그림처럼 사라지네 보고 싶어라 오늘도 그 사람을 떠올리려 산책을 하네 대기는 차갑게 감싸고 생생하게 생각나는 그때 안타까운 빛나던 시절 뒤로하고 가던 보고 싶어라 그리운 그 얼굴 물로 그린 그림처럼 사라지네 보고 싶어라 오늘도 그 사람을 떠올리려 산책을 하네</div>
+    <div id = "c3">한적한 밤 산책하다 보면 어김없이 생각나는 얼굴 반짝이는 별을 모아 그리는 그런 사람 좁다란 길 향기를 채우는 가로등 빛 물든 진달래꽃 이 향기를 그와 함께 맡으면 참 좋겠네 보고 싶어라 그리운 그 얼굴 물로 그린 그림처럼 사라지네 보고 싶어라 오늘도 그 사람을 떠올리려 산책을 하네 대기는 차갑게 감싸고 생생하게 생각나는 그때 안타까운 빛나던 시절 뒤로하고 가던 보고 싶어라 그리운 그 얼굴 물로 그린 그림처럼 사라지네 보고 싶어라 오늘도 그 사람을 떠올리려 산책을 하네</div>
+</body>
+</html>

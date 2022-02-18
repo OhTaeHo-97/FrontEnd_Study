@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 타입</title>
+    <script>
+        window.onload = function() {
+            const text = document.getElementById("text");
+            text.innerHTML = "<b style = 'color:deeppink;'>HTML문서가 모두 로드되었습니다.</b>"; // 여는 태그와 닫는 태그 사이에 있는 문자열 담는 변수
+        } // window에 load(이벤트명)라는 이벤트가 발생하면 등록되어 있는 function 이벤트 리스너가 호출됨
+        const changeTxt = function(el) {
+            el.innerHTML = "<b style = 'color: deepskyblue;'>변경된 문자열</b>";
+        }
+    </script>
+</head>
+<body>
+    <h2>이벤트 타입</h2>
+    <p id="text"></p>
+    <p onclick = "changeTxt(this)">문자열을 클릭하세요</p>
+    <!-- this가 클릭되는 target이 됨(함수 호출할 때) -> 요소 자체를 매개변수로 넘겨주고 있음 -> 넘겨주는 요소를 받을 수 있음 -->
+    <!-- onclick 함수에 넘기는 this는 현재 클릭된 태그요소를 뜻함 -->
+    <!-- click - 이벤트명, changeTxt - handler, p 태그 - target -->
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation - 1</title>
+    <style>
+        .box {
+            margin-top: 100px;
+            margin-left: 100px;
+            padding: 20px;
+            height: 100px;
+            border: 1px solid black;
+            box-sizing: border-box;
+            animation-name: moving;
+            animation-duration: 3s;
+            /* 한 번 에니메이션하고 다시 원래대로 돌아옴
+            반복과 횟수가 정해져 있지 않아서 */
+            animation-iteration-count: infinite;
+            /* 애니메이션을 몇 번 반복할 것인지 */
+            /* animation-direction: reverse; */
+            /* 애니메이션을 거꾸로 진행 */
+            /* animation-direction: alternate; */
+            /* 애니메이션을 진행한 후 거꾸로 돌아옴 */
+            animation-direction: alternate;
+            /* 애니메이션을 거꾸로 했다가 원래 애니메이션을 실행 */
+        }
+
+        /* 만들어놓고 다른 것에도 쓸 수 있다는 장점이 있음 */
+        /* 애니메이션을 만들고 그것을 적용하는 것 */
+        @keyframes moving {
+            from {
+                width: 170px;
+                background-color: cornflowerblue;
+                opacity: 0.5;
+                /* opacity - 투명도(0 ~ 1) */
+                /* text-align: right; */
+                padding-left: 10px;
+                transform: scale(0.5) rotate(30deg);
+            }
+            to {
+                width: 300px;
+                background-color: crimson;
+                opacity: 1;
+                /* text-align: right; */
+                padding-right: 140px;
+                transform: scale(1) rotate(-15deg);
+            }
+            /* width가 150px에서 300px로 변한다는 뜻 */
+        }
+    </style>
+</head>
+<body>
+    <h2>animation - 1</h2>
+    <div class = "box">
+        <h3>CSS Animation</h3>
+    </div>
+</body>
+</html>

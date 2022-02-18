@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인접 형제 선택자</title>
+
+    <style>
+        h3 + p {
+            /* h3가 앞에 있는 p 태그를 선택하는 것(아래 코드에서는 둘째) */
+            /* 셋째는 바로 앞이 p 태그이기 때문에 적용이 안 됨 */
+            color: white;
+            background-color: deeppink;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h2>인접 형제 선택자</h2>
+    <div>
+        <h3>첫째</h3>
+        <p>둘째</p>
+        <p>셋째</p>
+        <h4>넷째</h4>
+    </div>
+</body>
+</html>

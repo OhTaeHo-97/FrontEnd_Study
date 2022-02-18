@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex - 4</title>
+    <style>
+        h2 { text-align: center; }
+
+        #container {
+            width: 500px;
+            height: 150px;
+            margin: 0 auto;
+            display: flex;
+            border: 3px solid brown;
+            align-items: center;
+            justify-content:space-evenly;
+        }
+
+        #container2 {
+            width: 250px;
+            border: 3px solid brown;
+            flex-wrap: nowrap;
+            display: flex;
+        }
+
+        #container div {
+            width: 100px;
+            border: 3px solid magenta;
+            background-color: gold;
+        }
+
+        #container2 div {
+            width: 100px;
+            border: 3px solid magenta;
+            background-color: gold;
+        }
+
+
+        /* 다른 것들은 center로 되어 있음(container에 지정해놨으므로) */
+        /* align-self: flex-end;를 통해 box3만 flex-end가 됨 */
+        #box3 {
+            align-self: flex-end;
+            order: 1;
+        }
+
+        /* flex-grow: 늘어나는 정도를 결정
+        box1도 늘어나지만 box2가 좀 더 늘어남 */
+        #box2 {
+            align-self: stretch;
+            order: 3;
+            /* flex-grow:2; */
+        }
+
+        /* order를 이용해 배치 순서를 바꿔줄 수 있음 */
+        /* order를 준 것들끼리만 배치 순서가 바뀜 */
+        /* order는 비교하는 대상이 존재해야 한다! */
+        /* order를 주지 않은 것들의 기본값을 0이라고 생각하면 됨 */
+        /* flex-grow는 1만 주더라도 화면에 꽉 차도록 됨 */
+        /* 남은 여백을 어떻게 할 것인지 그런 것을 정할 때 grow 사용 */
+        #box1 {
+            order: 2;
+            /* flex-grow: 1; */
+        }
+
+        /* 모든 div의 너비가 100px임, 그래서 원래대로면 100px씩 하고 밑으로 와서 하나 만들어지던지 혹은 container2의 길이가 250px이니까 이를 3으로 나눈 너비로 되어야 함 */
+        /* box4,5는 shrink를 1, 6은 shrink를 2로 줬음
+        shrink는 줄어든다는 뜻이고 크기가 높을수록 더 줄어듬(그래서 박스의 너비를 더 줄이면서 한 줄에 배치되는 것을 볼 수 있음)
+        shrink의 기본값은 0 */
+        /* 부족한 만큼을 어디서 줄일지를 정하는 것 */
+        /* 부족한 부분을 비율을 1:1:2로 나눠서 줄인다고 생각하면 됨 */
+
+        #box4 {
+            flex-shrink: 1;
+        }
+
+        #box5 {
+            flex-shrink: 1;
+        }
+
+        /* flex-basis: max-content --> content를 줄이지 않는 한에서 꽉 채운 채 너비 설정 */
+        /* flex-basis: fit-content; --> 안에 있는 내용 여백까지 생기면서 만들어지는 것(범위를 벗어나지 않게 할 때 사용) */
+        #box6 {
+            flex-shrink: 2;
+            /* flex-basis: auto; */
+            /* flex-basis: max-content; */
+            /* flex-basis: fit-content; */
+        }
+
+        /* basis: 길이 정해주는 것 */
+
+        ul {
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            border: 1px solid red;
+        }
+
+        li {
+            background-color: cornsilk;
+            border: 1px solid blue;
+            position: relative;
+            padding: 10px;
+        }
+
+        /* flex-basis 같은 경우 30% 이렇게 크기로 정해주면 30%의 크기로 나오는 것이고 이것은 기본 크기를 정하는 것
+        grow나 shrink 먹기 전의 기본 크기를 정하는 것 */
+        /* 내가 width를 강제로 줬음 - 그러면 basis는 무시됨
+        shrink 같은 경우 크기가 줄어들 수 있음(기본크기로 설정해놓은 것이 없으면 끝도 없이 줄어들 것임), 그럴 때 basis로 기본크기를 정해놓으면 그것보다는 크게 나오거나 할 수 있음 */
+        /* shrink: 넘쳐나는 크기는 줄이기 위해 shrink를 통해서 줄인다고 했음
+        그것을 줄이게 되면 우리가 꼭 표현해야 하는 것들까지 다 떠나서 줄어들 것임(그것을 막기 위한 것)
+        basis를 50px로 줬다면 최소크기는 50px이 되는 것(기본 크기가) */
+        
+        /* shrink와 grow를 준다는 것은 어떤 기준이 있으니 그 기준에서 늘어나고 줄어들고 하는 것이 결정됨
+        내가 shrink나 grow는 요소들이 줄어들거나 늘어나면서 배치됨
+        그러니까 줄어든다 늘어난다라는 것은 초기 기준이 있을 것임
+        그 초기 기준을 basis로 정하는 것 */
+        /* shrink나 grow의 기본값이 0인데 이 때의 기본값을 정하는 것이 flex-basis */
+
+        #flex1 {
+            flex-basis: auto;
+        }
+
+        #flex2 {
+            flex-basis: max-content;
+        }
+
+        #flex3 {
+            flex-basis: min-content;
+        }
+
+        #flex4 {
+            flex-basis: fit-content;
+        }
+
+        #flex5 {
+            flex-basis: content;
+        }
+    </style>
+</head>
+<body>
+    <h2>flex - 4</h2>
+    <div id = "container">
+        <div id = "box1"><p>1</p></div>
+        <div id = "box2"><p>2</p></div>
+        <div id = "box3"><p>3</p></div>
+    </div>
+
+    <div id = "container2">
+        <div id = "box4"><p>4</p></div>
+        <div id = "box5"><p>5</p></div>
+        <div id = "box6"><p>68877767665123</p></div>
+    </div>
+
+    <ul id = "container3">
+        <li id = "flex1">1: flex-basis</li>
+        <li id = "flex2">2: flex-basis</li>
+        <li id = "flex3">3: flex-basis</li>
+        <li id = "flex4">4: flex-basis</li>
+        <li id = "flex5">5: flex-basis</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이프레임</title>
+</head>
+<body>
+    <h2>아이프레임</h2>
+    <p>
+        <a href = "https://nodejs.org/en/">node.js(페이지 이동)</a>
+    </p>
+    <p>
+        <a href = "https://nodejs.org/en/" target = "_blank">node.js(새탭으로 이동)</a>
+    </p>
+    <p>
+        <a href = "https://nodejs.org/en/" target = "if">node.js(아이프레임에서 이동)</a>
+        <!-- 여기서 target을 통해 어디서 열릴지 줘야 하는데 iframe에서 열리게 하려면 iframe의 name이 필요 -->
+        <br>
+        <a href = "https://www.naver.com" target = "if">naver(아이프레임에서 이동)</a>
+        <br>
+        <a href = "http://www.koreaitacademy.com" target = "if">코리아 IT 아카데미(아이프레임에서 이동)</a>
+    </p>
+    <p>
+        <!-- 내가 앞으로 어떤 링크를 눌렀을 때 이 창에 띄우게 할 것이기 대문에 이 띄울 창의 이름이 있어야 거기에서 띄워줘라는 것이 된다는 것 -->
+        <!-- 그래서 꼭 name 속성이 들어가야 함 -->
+        <!-- border:3px dashed red; -> 3px 크기의 점선이고 빨간색이다라는 의미 -->
+        <!-- style 속성을 통해 모양을 바꿔주는데 CSS에서는 하나하나 쓸 때마다 세미콜론으로 끊어야 어디까지인지 알 수 있음 -->
+        <iframe name = "if" style = "width:100%; height:800px; border:3px dashed red;"></iframe>
+    </p>
+</body>
+</html>

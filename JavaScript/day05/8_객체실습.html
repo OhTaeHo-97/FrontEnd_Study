@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동물원</title>
+</head>
+<body>
+    <h2>동물원</h2>
+    <script>
+        // 동물 세마리 만들어서 울게 하기
+        // 이름, 성별, 나이, 종
+        // 먹기, 자기, 울기, 움직이기
+
+        class Animal {
+            constructor(name, gender, age, species) {
+                this.name = name;
+                this.gender = gender;
+                this.age = age;
+                this.species = species;
+            }
+            eat() {
+                console.log(this.name + "이(가) 먹는 중...");
+            }
+            sleep() {
+                console.log(this.name + "이(가) 자는 중...");
+            }
+            bark(bark_sound) {
+                console.log(bark_sound);
+            }
+            move() {
+                console.log(this.name + "이(가) 움직이는 중...");
+            }
+        }
+
+        const cat = new Animal("고양이", "남자", 13, "고양이");
+        const dog = new Animal("강아지", "남자", 8, "강아지");
+        const fox = new Animal("여우", "여자", 3, "여우");
+
+        cat.bark("냐옹");
+        dog.bark("월월");
+        fox.bark("아울");
+    </script>
+</body>
+</html>

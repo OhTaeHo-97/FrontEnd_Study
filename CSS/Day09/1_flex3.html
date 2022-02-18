@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex - 3</title>
+    <style>
+        h2, h3 {
+            text-align: center;
+        }
+
+        .wrapper {
+            width: 500px;
+            height: 150px;
+            margin: 0 auto;
+            display: flex;
+            border: 3px solid rosybrown;
+        }
+
+        .wrapper div {
+            width: 100px;
+            border: 2px solid blueviolet;
+            background-color: salmon;
+        }
+
+        /* div에 따로 길이를 지정해주지 않으면 contents만큼만 생겨야 하는데 stretch로 하면 높이를 쭉 늘려서 꽉 채움(배치할 때) */
+        #container1 { align-items: stretch; }
+        /* flex 요소 내부에 있는 내용만큼으로 높이가 맞춰지고 그 상태로 위쪽에 배치가 됨 */
+        #container2 { align-items: flex-start; }
+        /* flex 요소 내부에 있는 내용만큼으로 높이가 맞춰지고 그 상태로 아래쪽에 배치가 됨 */
+        #container3 { align-items: flex-end; }
+        /* flex 요소 내부에 있는 내용만큼으로 높이가 맞춰지고 그 상태로 가운데에 배치가 됨 */
+        #container4 { align-items: center; }
+        /* flex-start: 요소들이 만들어지면 크기가 제각각인데 이들을 그냥 위쪽으로 기준선을 맞춤 */
+        /* baseline: 내부 내용으로 기준선을 맞춤 */
+        #container5 { align-items: baseline; }
+    </style>
+</head>
+<body>
+    <h2>flex - 3</h2>
+    <h3>align-items : stretch</h3>
+    <div id = "container1" class = "wrapper">
+        <div><p>1</p></div>
+        <div><p>2</p></div>
+        <div><p>3</p></div>
+    </div>
+    <h3>align-items : flex-start</h3>
+    <div id = "container2" class = "wrapper">
+        <div><p>1</p></div>
+        <div><p style = "font-size: 30px;">2</p></div>
+        <div><p>3</p></div>
+    </div>
+    <h3>align-items : flex-end</h3>
+    <div id = "container3" class = "wrapper">
+        <div><p>1</p></div>
+        <div><p>2</p></div>
+        <div><p>3</p></div>
+    </div>
+    <h3>align-items : center</h3>
+    <div id = "container4" class = "wrapper">
+        <div><p>1</p></div>
+        <div><p>2</p></div>
+        <div><p>3</p></div>
+    </div>
+    <h3>align-items : baseline</h3>
+    <div id = "container5" class = "wrapper">
+        <div><p>1</p></div>
+        <div><p style = "font-size: 30px;">2</p></div>
+        <div><p>3</p></div>
+    </div>
+</body>
+</html>

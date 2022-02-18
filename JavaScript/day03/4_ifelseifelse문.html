@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if ~ else if ~ else문</title>
+</head>
+<body>
+    <h2>if ~ else if ~ else문</h2>
+    <script>
+        const age = Number(prompt('나이를 입력하세요'));
+        if(age>=20) {
+            console.log('성인입니다.');
+            console.log('성인 인증 완료!');
+        } else if(age <= 19 && age >= 13) {
+            // ~이고, ~하고, ~하며, ~이며 : &&
+            // ~거나, ~혹은, ~또는 : ||
+        } else {
+            console.log('미성년입니다.');
+            console.log('성인인증 불가!');
+        }
+        
+        console.log('프로그램을 종료합니다.');
+        
+    </script>
+</body>
+</html>

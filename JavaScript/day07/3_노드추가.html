@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드의 추가</title>
+    <script>
+        const appendNode = function() {
+            const parent = document.getElementById("list");
+            const newItem = document.getElementById("item1");
+            parent.appendChild(newItem); // 자식을 이어붙이기(괄호 안에는 붙일 node를 적어주면 됨)(parent에 newItem을 마지막에 추가하라라는 뜻)
+            // 복사해서 추가하는 것이 아님(그 요소 자체를 추가하는 것임)
+            // 따라서 기존에 있던 JavaScript가 이동함
+        }
+        const insertNode = function() {
+            const parent = document.getElementById("list");
+            const backend = document.getElementById("backend");
+            const newItem = document.getElementById("item2");
+            parent.insertBefore(newItem, backend); // newItem을 backend 앞에 추가
+        }
+        const appendText = function() {
+            const text = document.getElementById("text").firstChild; // 자식요소는 없지만 node는 있음(p 요소 노드 아래에 text node가 하나 있고 그 text node가 '지금 시간은 오후 4시 7분입니다'를 담고 있음)
+            
+            // text node의 7번 위치(index)에 뒤의 문자열 추가
+            text.insertData(7, "집에 가고싶은 "); // 몇 번째 위치에 추가할 것인지, 추가할 요소
+        }
+    </script>
+</head>
+<body>
+    <h2>노드의 추가</h2>
+    <p id = "item1">JavaScript</p>
+    <p id="item2">TypeScript</p>
+    <hr>
+    <div id="list">
+        <p id="backend">node.js</p>
+        <p>HTML</p>
+        <p>CSS</p>
+    </div>
+    <hr>
+    <p id="text">지금 시간은 오후 4시 7분입니다.</p>
+    <hr>
+    <button onclick = "appendNode()">노드추가1</button>  <!-- 기본이 submit(form 안에서 누르면 form이 제출됨) -->
+    <button onclick = "insertNode()">노드추가2</button>
+    <button onclick = "appendText()">텍스트 추가</button>
+</body>
+</html>

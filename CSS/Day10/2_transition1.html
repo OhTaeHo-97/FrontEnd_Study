@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transition - 1</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            margin: 30px;
+            border: 1px solid black;
+        }
+
+        #bg-tr {
+            background-color: plum;
+            transition: background-color linear 2s;
+            /* 2초동안 background-color가 서서히 바뀜(hover에서 background-color를 바꿔줬으므로 마우스를 올리면 일정한 속도로 2초동안 바뀜) */
+        }
+
+        #bg-tr:hover {
+            background-color: navy;
+        }
+
+        #border-tr {
+            background-color: olive;
+            border: 5px dotted hotpink;
+            transition: all ease 2s;
+            /* 천천히 바뀌었다가 빨리 바뀌었다가 다시 천천히 바뀜 */
+        }
+
+        #border-tr:hover {
+            background-color: lavender;
+            border: 5px dashed cornflowerblue;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h2>transition - 1</h2>
+    <div id="bg-tr"></div>
+    <div id="border-tr"></div>
+</body>
+</html>

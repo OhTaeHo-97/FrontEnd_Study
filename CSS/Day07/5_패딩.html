@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>패딩</title>
+    <style>
+        div {
+            width:200px;
+            height:auto;
+            /* 위 width, height는 content의 크기 */
+            background-color: deepskyblue;
+            margin: 20px;
+            color: white;
+            /* 글자 색 */
+        }
+
+        #pd1 {
+            padding: 10px 20px 30px 40px;
+            /* 위부터 시작해서 시계방향으로 오른쪽, 아래, 왼쪽 순서로 padding이 주어짐 */
+        }
+
+        #pd2 {
+            padding: 10px 20px 30px;
+            /* 위부터 시작해서 시계방향으로 오른쪽, 아래 순서로 padding이 주어지고 오른쪽 크기가 왼쪽 크기로도 같이 적용됨 */
+        }
+
+        #pd3 {
+            padding: 10px 20px;
+            /* 위부터 시작해서 시계방향으로 진행되는데 첫 번째는 위, 야래 두 번째는 오른쪽, 왼쪽 크기 */
+        }
+
+        #pd4 {
+            padding: 10px;
+            /* 네 방향 다 10px */
+        }
+    </style>
+</head>
+<body>
+    <h2>패딩</h2>
+    <div id = "pd1">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </div>
+    <div id = "pd2">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </div>
+    <div id = "pd3">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </div>
+    <div id = "pd4">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </div>
+</body>
+</html>

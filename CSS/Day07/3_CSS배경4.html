@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 배경 - 4</title>
+    <style>
+        div {
+            background-image: url("../Day06/present.jpg");
+            background-repeat: no-repeat;
+            width:150px;
+            height:150px;
+            border:2px solid red;
+        }
+
+        .bg1 {
+            background-size: 50px 100px;
+            /* 배경의 가로, 세로 크기 */
+        }
+
+        .bg2 {
+            background-size: 300px 400px;
+            background-position: center;
+        }
+
+        .bg3 {
+            background-size: cover;
+            /* 여백이 생기지 않도록 줄여 넘치는 부분은 자른다 */
+            /* 이미지의 가로, 세로 비율은 유지됨 */
+        }
+
+        .bg4 {
+            width: 600px;
+            height: 600px;
+            background-size: contain;
+            /* 배경 이미지의 가로, 세로 비율은 유지가 되고 해당 요소에 맞게끔 키워짐 */
+            /* 남는 부분은 여백으로 처리됨 */
+        }
+    </style>
+</head>
+<body>
+    <h2>CSS 배경 - 4</h2>
+    <div class = "bg1"></div>
+    <div class = "bg2"></div>
+    <div class = "bg3"></div>
+    <div class = "bg4"></div>
+</body>
+</html>

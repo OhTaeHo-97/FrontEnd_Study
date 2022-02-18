@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 - 2</title>
+</head>
+<body>
+    <h2>배열 - 2</h2>
+    <script>
+        let arr = ['apple', 'abcd1234', '김사과'];
+        arr.push(10);
+        console.log(arr); // 각 원소들과 길이를 보여줌
+
+        arr.shift();
+        console.log(arr);
+
+        arr.pop();
+        console.log(arr);
+
+        let arr1 = [10, 20, 30];
+        let arr2 = [40, 50, 60];
+
+        // concat은 기존 배열들의 원본은 그대로 놔둔다.
+        // 연결된 새로운 배열을 돌려준다.
+        let arr3 = arr1.concat(arr2); // concat() -> 합쳐진 배열을 돌려주는 것(즉, 각 array들의 원본은 그대로라는 것)
+        console.log(arr1);
+        console.log(arr2);
+        console.log(arr3);
+
+        // arr3 - > 6개의 값이 있는 배열
+        let str1 = arr3.join("☆"); // arr3에 있는 요소를 하나씩 다 꺼내오면서 사이사이에 ☆을 붙여주는 것(문자열인데 10☆20☆30☆40☆50☆60 임)
+        // 원본은 그대로이고 원본 갖고 만들어낸 문자열을 돌려주는 것
+        console.log(str1);
+
+        let arr4 = [1000, 27, 13, 271, 50];
+        arr4.reverse();
+        console.log(arr4); // 거꾸로 뒤집혀서 출력됨(원본이 바뀐다!)
+
+        arr4.sort(); // 사전순(배열의 정렬은 ASCII코드 순으로 정렬)(문자열로 사전순으로 정렬이 된다!)
+        console.log(arr4);
+    </script>
+</body>
+</html>

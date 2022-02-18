@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로토타입</title>
+</head>
+<body>
+    <h2>프로토타입</h2>
+    <script>
+        function Car(brand, color, price) {
+            this.brand = brand;
+            this.color = color;
+            this.price = price;
+        }
+
+        const mycar = new Car("Ferrari", "Red", 65000);
+        const momcar = new Car("K7", "White", 4000);
+
+        // 기존에 없던 roofOpen이라는 프로퍼티에 새로운 값을 넣어줌으로써 그 객체게게 프로퍼티를 추가할 수 있다
+        mycar.roofOpen = function() {
+            console.log(this.brand + " 뚜껑 열기");
+        }
+        // roofOpen -> mycar에 없던 프로퍼티(원래는 brand, color, price만 있었을 것임)
+        // mycar.roofOpen -> 새로운 값을 넣어주게 되면 mycar에게는 프로퍼티 하나가 추가가 된다!(새로운 값을 넣어줌으로써)
+        // mycar.roofOpen -> mycar에 추가해준 것! -> momcar.roofOpen을 하면 momcar에는 추가를 안해줬으므로 안 나올 것임
+        mycar.roofOpen();
+        // 기존에 어떤 프로퍼티에 (?)
+
+        // momcar.roofOpen();
+        // momcar는 프로퍼티를 가지고 있지 않으므로 실행 불가능
+        // momcar.roofOpen()
+        // 자바스크립트의 객체는 {}로 만들 수 있었음
+        // 생성자를 이용하는 이유는 {}로 여러 개 만들기 어려움으로
+        // 그런데 생성자로서는 여러 {} 객체들의 공통된 것들만 담아두는 것
+
+        // Car 생성자로 만들어지는 prototype의 wheel = 4
+        // mycar, momcar 같은 객체들은 전부 Car 생성자로 만들어지는 그 프로토타입을 상속 받아서 객체가 만들어진다.
+        // 따라서 프로토타입에 추가한 프로퍼티, 메소드들은 모든 객체들에게 추가가 된다!!
+        Car.prototype.wheel = 4;
+        // 특정 수행의 결과로 property가 추가된다면(프로그램이 돌아가는 중에 추가해야 하는 경우가 있을 수 있음) 객체들을 다 쓰기 어려움 -> Car 생성자로 만들어지는 prototype에다가 wheel을 4라는 값으로 넣기!
+        Car.prototype.engineStart = function() {
+            console.log(this.brand + " 시동 켜기");
+        }
+
+        console.log(mycar.wheel);
+        console.log(momcar.wheel);
+        // Car로 만든 prototype에 추가됨 -> mycar, momcar 모두 그 prototype을 상속받아 만든다고 했으니 추가가 됐을 것이다!
+        mycar.engineStart();
+        momcar.engineStart();
+
+        console.log(mycar);
+        console.log(momcar);
+        // mycar에는 roofOpen 추가했고 momcar에는 안 했음, 그런데 prototype.wheel, enginestart 추가했는데 이는 prototype에 담겨있음!(내 객체 필드에 생긴다기보다는 받아온 프로퍼티에 생기는 것 -> 거기에 engineStart, wheel을 쓰는 것)(공통적으로 받아오는 곳에 생기는 것)
+    </script>
+</body>
+</html>

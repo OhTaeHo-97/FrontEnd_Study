@@ -1,0 +1,15 @@
+<html lang = "en">
+<head>
+	<title>타이틀</title>
+</head>
+<body>
+	<h2>제목</h2>
+	<p>내용</p>
+</body>
+<script>
+    const arr = document.getElementsByTagName("h2");
+    console.log(arr);
+    arr[0].style.color = "blue"; // h2 태그를 뜻하는 것과 마찬가지(그 요소를)
+    arr[0].innerHTML = "바뀐 제목";
+</script>
+</html>

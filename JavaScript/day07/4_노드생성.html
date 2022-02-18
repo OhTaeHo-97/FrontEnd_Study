@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드의 생성</title>
+</head>
+<body>
+    <h2>노드의 생성</h2>
+    <p id="el">새로운 문장이 이 문장 앞에 추가됨</p>
+    <p id="attr">이 단락에 새로운 속성이 추가됨</p>
+    <p id="text"></p>
+    <button onclick = "createNode()">요소노드생성</button>
+    <button onclick = "createAttr()">속성노드생성</button>
+    <button onclick = "createText()">텍스트노드생성</button>
+</body>
+<script>
+    const createNode = function() {
+        const elNode = document.getElementById('el');
+        const newNode = document.createElement('p'); // p 태그 요소의 node를 하나 만든다고 보면 됨(새롭게), 화면에는 드러나지 않을 것임(아직 배치시키지 않았으니)
+        // 어딘가에 숨겨놓은 채 p 태그 요소를 만든다고 생각하면 됨
+        // 그 요소의 내부 내용이라던지 이런 것은 (?)(태그바디가 빈 p 태그 하나를 새로 만든 것)
+        newNode.innerHTML = "<b>새로운 요소</b>"; // 빈 p 태그 사이에 이 내용이 써지게 됨
+        document.body.insertBefore(newNode, elNode); // newNode 앞에 elNode를 배치
+    }
+    const createAttr = function() {
+        const attr = document.getElementById("attr");
+        const newAttr = document.createAttribute('style'); // style이라는 속성을 만드는 것(style도 하나하나가 속성 노드)
+        // 속성이 추가된다고 해놓은 곳에 붙여넣을 것임
+        // style = "" 이런 것이 만들어진 것
+        newAttr.value = "color:deepskyblue; background-color:deeppink;"; // 바꿀 값을 넣어주면 됨
+
+        // 속성 노드를 attr에 붙여주기
+        attr.setAttributeNode(newAttr);
+    }
+    const createText = function() {
+        const textNode = document.getElementById("text");
+        const newText = document.createTextNode("gift");
+        textNode.appendChild(newText); // textNode p 태그에게 새로 만든 text node를 추가
+        // insertData -> 그 text node 찾아서 추가(앞에 있는 것이 text node여야 함, 그래야 그 안에 있는 텍스트를 추가하는 것이므로)
+        // appendChhild -> 자식으로 text node 추가
+    }
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>em 크기</title>
+    <style>
+        /* 1em으로 하여 부모와 같은 사이즈
+        em의 부모는 body */
+        /* 그래서 변화가 없음 */
+        /* body의 부모는 html, 그리고 html의 폰트의 기본은 16px, 그래서 body 태그가 16px의 1.5배인 24px로 설정됐을 것임
+        그러니까 따라서 나머지들도 따라서 증가함 */
+        body { font-size: 1.5em; }
+        .em { font-size: 1em; }
+    </style>
+</head>
+<body>
+    <h2>em 크기</h2>
+    <div style = "font-size: 10px;">
+        <!-- 상위요소가 body가 아닌 div가 되므로 10px로 바뀜(1em이니까) -->
+        <p class = "em">
+            내가 원하는 나의 모습과 네가<br>
+            필요로 하는 나의 모습이 같지가 않다는 것<br>
+            잘못된 건 아니지 않나요<br>
+            미안할 일 아니지 않나요<br>
+            그런데 왜 또 그렇게 자꾸 날 몰아세우는 건데<br>
+            도대체 뭐를 더 어떻게 해<br>
+            난 몇 마디의 말과 몇 번의 손짓에<br>
+            또 몇 개의 표정과 흐르는 마음에<br>
+            울고 웃는 그런 나약한 인간일 뿐인데<br>
+            대체 내게서 뭐를 더 바라나요<br>
+            내가 줄 수 있는 것 그 이상을<br>
+            줄 수 없음에 미안해해야 하는 건 이제 그만둘래요<br>
+            달라졌구나 참 많이도 변했구나<br>
+            난 여전히 그대론데 넌 달라져 버렸어<br>
+            근데 혹시 한 번쯤 반대로 생각해 본 적은 없었나요<br>
+            난 몇 마디의 말과 몇 번의 손짓에<br>
+            또 몇 개의 표정과 흐르는 마음에<br>
+            울고 웃는 그런 나약한 인간일 뿐인데<br>
+            대체 내게서 뭐를 더 바라나요<br>
+            내가 줄 수 있는 것 그 이상을<br>
+            줄 수 없음에 미안해해야 하는 건 이제 그만둘래요
+        </p>
+    </div>
+</body>
+</html>

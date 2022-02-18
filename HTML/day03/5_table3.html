@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 - 3</title>
+</head>
+<body>
+    <h2>테이블 - 3</h2>
+    <table border = "1" width = "600">
+        <caption>
+            <p><b>프론트엔드 테이블</b></p>
+        </caption>
+        <colgroup>
+            <!-- <col width = "100">
+            <col width = "250" span = "2"> -->
+            <!-- 마지막은 남은 것만큼 차지해서 안 해도 됨 -->
+            <col width = "200" span = "3">
+            <!-- 처음을 건너뛰고 싶다면 <col> 이렇게 빈 것을 하나 만들면 그 column은 건너뜀-->
+            <!-- 여기서 col은 첫 번째 column, 두 번째 column 이런 순서로 해당 column 전체에 다 적용됨 -->
+            <!-- class로 바꾸는 것과 비교해도 이 역시도 td 각각에 넣어주어야 하므로 colgroup이 많이 활용됨 -->
+        </colgroup>
+        <tr>
+            <th>이름</th>
+            <th>전화번호</th>
+            <th>주소</th>
+        </tr>
+        <tr>
+            <td>김사과</td>
+            <td>01012341234</td>
+            <td>서울시 강남구 역삼동</td>
+        </tr>
+        <tr>
+            <td>반하나</td>
+            <td>01011111111</td>
+            <td>서울시 동작구 사당동</td>
+        </tr>
+        <tr>
+            <td>이체리</td>
+            <td>01000000000</td>
+            <td>안양시 동안구 평촌동</td>
+        </tr>
+    </table>
+</body>
+</html>

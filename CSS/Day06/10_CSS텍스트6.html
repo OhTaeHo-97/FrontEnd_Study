@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 텍스트 - 6</title>
+    <style>
+        .content {
+            border: 3px solid red;
+            width: 400px;
+            padding: 10px;
+            white-space: nowrap;
+            /* 넘쳐나는 것을 그대로 보여주게 됨(줄바꿈 안하고) */
+            overflow:hidden;
+            /* 넘쳐나던 것이 사라짐 */
+            text-overflow: ellipsis;
+            /* 넘쳐나는 것을 ...이라는 말줄임표로 됨 */
+        }
+
+        .content:hover {
+            overflow:visible;
+            /* 마우스를 올려놓으면 넘쳐서 보이지 않던 것들을 보이게 함 */
+        }
+    </style>
+</head>
+<body>
+    <h2>CSS 텍스트 - 6</h2>
+    <p class = "content">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </p>
+</body>
+</html>

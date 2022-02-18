@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex - 1</title>
+    <style>
+        #container {
+            width: 1000px;
+            height: 500px;
+            margin: 0 auto;
+            border: 3px solid red;
+            display: flex;
+            /* flex를 주는 순간 height가 전체로 늘어나면서 수평정렬이 됨 */
+            /* div를 400px로 주면 width를 1000px을 넘어가게 됨 -> 기본 설정으로는 요소들이 크기가 넘쳐난다면 한 줄에 모두 배치함(그 속성이 flex-wrap임) */
+            /* flex-wrap: nowrap; */
+            /* flex-wrap: wrap; */
+            /* 넘치는 것은 아래 줄로 내림 */
+            flex-wrap: wrap-reverse;
+            /* 넘치는 것을 이전 줄로(위줄로) 올림 */
+        }
+
+        #container div {
+            width: 400px;
+            border: 1px solid black;
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+    <h2>flex - 1</h2>
+    <div id = "container">
+        <div id = "box1"><h2>1</h2></div>
+        <div id = "box2"><h2>2</h2></div>
+        <div id = "box3"><h2>3</h2></div>
+    </div>
+</body>
+</html>

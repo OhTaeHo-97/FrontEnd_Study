@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date 객체</title>
+</head>
+<body>
+    <h2>Date 객체</h2>
+    <script>
+        console.log(new Date()); // 현재 시간
+        console.log(new Date(21, 11, 19)); // 1921년 12월 19일(왼쪽부터 연, 월, 일 순)(월은 0부터 시작!)
+        console.log(new Date(2021, 11, 19)); // 2021년 12월 19일
+
+        console.log(new Date("2021-12-19")); // 2021년 12월 19일 Date 객체 생성
+        
+        console.log(new Date(2021, 11, 19, 16, 21, 32)); // 2021년 12월 19일 16시 21분 32초
+
+        // Fri Sep 24 1971 19:15:23 GMT+0900 (한국 표준시)
+        console.log(new Date(54555323232)); // 1970년 1월 1일 0시 0분 0초(유닉스 시간)부터 54555323232밀리초만큼 지난 시간의 날짜 객체
+        // 밀리초: 1000분의 1초
+
+        const date = new Date();
+
+        console.log(`현재 년도: ${date.getFullYear()}`); // 현재 년도 출력
+        console.log(`현재 월: ${date.getMonth() + 1}`); // 현재 월 출력(0부터 시작해서 1을 더해줘야 함)
+        console.log(`현재 일: ${date.getDate()}`);
+
+        console.log(`현재 시간: ${date.getHours()}`);
+        console.log(`현재 분: ${date.getMinutes()}`);
+        console.log(`현재 초: ${date.getSeconds()}`);
+    </script>
+</body>
+</html>

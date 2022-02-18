@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>interval</title>
+</head>
+<body>
+    <h2>interval</h2>
+    <script>
+        let iv = window.setInterval(()=>{
+            console.log("안녕하세요!");
+        }, 2000); // setInterval이 수행되기 때문에 2초마다 한 번씩 찍힘
+
+        function stopIt() {
+            alert("콘솔을 멈춥니다.");
+            window.clearInterval(iv);
+        }
+    </script>
+    <input type = "button" value = "콘솔 멈춰" onclick = "stopIt();">
+    <!-- onclick -> 클릭을 할 때, 안에 JS 문법 사용 -->
+</body>
+</html>
