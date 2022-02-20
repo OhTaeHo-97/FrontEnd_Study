@@ -1,0 +1,33 @@
+html 
+    head 
+        title 사용자 정보
+    body
+        //- 아이디가 header인 div
+        #header 
+            h2 사용자 아이디 : #{userid}
+        hr
+        #header 
+            h2 사용자 이름 : #{username}
+            p=desc
+            //- p 태그 안에 desc 내용이 담겨있는 채로 써져 있음
+        hr
+        .article 
+            a(href="https://www.daum.net", title="다음으로 놀러가기") 다음으로 이동
+        hr
+        //- for라는 클래스를 가진 div
+        .for
+            //- jade 내에서 어떤 로직(문법)을 쓰고 싶다면 앞에 -를 써주면 됨
+            //- -for(let i = 0; i < 10; i++) {
+            //-     p
+            //-         a(href="#{i}") 책갈피 #{i} 
+            //- -}
+            -for(let i = 0; i < 10; i++)
+                p
+                    a(href="#{i}") 책갈피 #{i}
+        //- 위는 jade에서 사용하는 for문, 응답된 페이지에 실제로 script 태그를 통해 for문 달고 싶으면 어떻게 해야 할까?
+        script
+            |// 내부는 javascript 영역이 됨
+            |// 앞에는 |를 써줘야 함(안쓰면 텍스트 형태로 써짐)
+            |for(let i = 0; i < 10; i++) {
+            |    console.log(i);
+            |}
