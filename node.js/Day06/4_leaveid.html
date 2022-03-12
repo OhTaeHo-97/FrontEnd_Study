@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" plackeholder = "탈퇴할 아이디" name="userid" id="userid">
+    <input type="button" value="탈퇴하기" onclick = "leaveId()">
+    <p id="result"></p>
+</body>
+<script src = "https://code.jquery.com/jquery-3.6.0.min.js
+"></script>
+<script>
+    function leaveId() {
+        const result = document.getElementById("result");
+        const userid = document.getElementById('userid').value;
+        let obj = {userid:userid};
+        let data = JSON.stringify(obj);
+        console.log(data);
+
+        // jquery 이용한 ajax -> $.ajax()가 jquery ajax임
+        // ajax 요청에 대한 객체를 넘겨줘야 함(설정에 대한 객체)
+        // contentType: "application/json", // json으로 보내고 있다는 뜻
+        // data에 json 객체를 써주면 됨
+        // 성공했을 시 success를 호출하여 콜백함수 받아서 안에 기능을 구현
+        $.ajax({
+            url: "/member/deleteJSON",
+            type: "DELETE",
+            // headers: {'Content-Type': 'application/json'},
+            contentType: "application/json",
+            dataType: 'json',
+            data: data,
+            success:function(data) { // 응답받은 데이터를 매개변수 data로 받아옴
+                result.innerHTML = '탈퇴 성공!';
+            }
+        })
+    }
+</script>
+</html>
