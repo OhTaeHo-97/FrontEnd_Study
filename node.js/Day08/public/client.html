@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클라이언트</title>
+    <script src = "https://code.jquery.com/jquery-3.6.0.min.js
+    "></script>
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
+    <script>
+        $(function() {
+            $("#connectBtn").on('click', function(e) {
+                console.log('connect 버튼 클릭');
+                host = $("#hostInput").val();
+                port = $("#portInput").val();
+
+                connectToServer(); // (?)
+            });
+            $("#sendBtn").on('click', function(e) {
+                const sender = $("#sender").val();
+                const data = $("#data").val();
+
+                const output = {sender: sender, data: data};
+                console.log(`서버로 보낼 메세지 : ${JSON.stringify(output)}`);
+                if(socket == undefined) {
+                    alert("서버에 연결되지 않았습니다. 서버를 연결하세요!");
+                    return;
+                }
+                socket.emit('message', output);
+            })
+        });
+
+        function connectToServer() {
+            const url = `http://${host}:${port}`;
+            // 실제로는 서버 컴퓨터와 클라이언트 컴퓨터가 다름 -> node 파일은 서버 컴퓨터에서 돌아감 -> socketio를 npm으로 설치한 것은 서버에 설치된 것 -> client는 없음! -> client에는 socket 관련된 것이 없는데 어떻게 요청을 하는가?
+            
+            // 연결
+            socket = io.connect(url); // url로 연결해서 socket을 받아서 옴
+            console.log('socket 객체 생성');
+            // socket 객체에 event 달아줌
+            socket.on('connect', function() {
+                console.log('웹 소켓 서버에 연결되었습니다.');
+                // (?)
+                socket.on('message', function(message) {
+                    console.log(JSON.stringify(message));
+                    println(`${message.sender} -> ${message.data}`);
+                }); // client 소켓에게 message 이벤트가 발생했다면
+            });
+        }
+
+        function println(data) {
+            $("#result").append(`<p>${data}</p>`);
+        }
+    </script>
+</head>
+<body>
+    <h2>클라이언트</h2>
+    <p>접속 ip : <input type="text" id="hostInput" value = "127.0.0.1"></p>
+    <p>port: <input type="text" id="portInput" value = "3000"></p>
+    <p><input type="button" value="서버접속" id = "connectBtn"></p>
+    <hr>
+    <p>보내는 사람 아이디 : <input type="text" name="" id="sender"></p>
+    <p>메시지 <input type="text" name="" id="data"> <input type="button" value="전송" id = "sendBtn"></p>
+
+    <p>
+        채팅창
+        <div id = "result"></div>
+    </p>
+</body>
+</html>

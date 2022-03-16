@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 업로드</title>
+    <script src = "https://code.jquery.com/jquery-3.6.0.min.js
+    "></script>
+    <script src = "./moment.min.js"></script>
+    <script>
+        $(function(){
+            const time = moment().format('YYYY-MM-DD HH:mm'); // 시간을 쉽게 표현할 수 있음
+            $("#time").attr("value", time); // id가 time인 것의 value라는 속성에 time 값을 넣어달라
+            $("#photoInput").change(function() {
+                // 파일 선택해서 넣으면 변화가 생김 -> 이럴 때 이 함수가 호출됨
+                readURL(this); // this -> 변화가 생긴 것(readURL에 그 태그 넘기며 호출함)(this -> 파일을 업로드한 input[type=file] 태그)
+            }) // change라는 이벤트 달음(photoInput에 변화가 있다면 넘겨주는 함수를 호출해줄 것임)
+        }); // 문서가 로딩되면 호출되는 함수
+
+        function readURL(input) { // input type file에 변화가 생겼을 때 this(input type file) 넘기며 호출하니 그것이 넘겨지며 왔을 것임
+            if(input.files && input.files[0]) { // 파일을 올렸다면
+                // 파일을 읽어올 reader
+                const reader = new FileReader(); // 파일을 읽는 객체
+                // reader에게 load 이벤트 발생 시 수행할 함수를 등록
+                reader.onload = function(e) {
+                    // e.target.result -> 읽어온 url(경로/파일이름)
+                    // #photoOutput의 src에 읽어온 url 작성(이미지 태그로 보여짐)
+                    $("#photoOutput").attr("src", e.target.result); // src에 e.target.result를 넘겨줌
+                } // reader가 로드되면 이 함수 호출
+                reader.readAsDataURL(input.files[0]); // input의 files의 0번째를 URL로 읽을 것임
+            }
+        } // reader 만들고 onload에 함수 달아주고 readAsDataURL 했을 때 onload에 달아준 함수가 수행됨(readAsDataURL에서 input.files[0](올린 파일)의 url을 읽고 있음), apple.png가 올라왔을 것이고 그 때 onload에 달아준 함수가 호출됨
+        // e.target.result -> 지금 올린 파일을 url을 읽는데 그 읽어온 url일 것임
+        // readAsDataURL에서 apple.png가 존재하는 경로가 읽혔을 것임, 경로를 읽으면서 이벤트가 발생하고 그러면서 onload가 호출됨, e에는 url을 읽은 그 이벤트가 담겨있음, 그 e.target이 대상이고 result는 결과, 그 이벤트 대상에 대한 결과라서 url임
+    </script>
+</head>
+<body>
+    <form action="/write" method = "POST" enctype = "multipart/form-data">
+        <p>현재 시간 : <input type="text" name="time" id = "time"></p>
+        <p>제목 : <input type="text" name="title"></p>
+        <p>이미지 : <input type="file" name="photo" id="photoInput"></p>
+        <!-- file 타입의 input을 사용할 때는 form에 enctype을 적어줘야 함(multipart/form-data) -->
+        <p><img src="" id = "photoOutput" width = "200"></p>
+        <p><input type="submit" value="확인"></p>
+    </form>
+</body>
+</html>
